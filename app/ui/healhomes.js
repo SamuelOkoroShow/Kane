@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { View, Text, TouchableOpacity, ScrollView, Dimensions } from "react-native";
 
 import styled from "styled-components/native";
@@ -53,8 +53,17 @@ const RunNY34 = styled.View`
 const FullGoogleParrot = styled.View`
   flex: 1;
   background-color: ${ASIAN_BREASTED[3]};
+  justify-content: flex-end;
+  align-items: center;
+`;
+const FullEcowas29 = styled.View`
+  flex: 1;
+  background-color: ${ASIAN_BREASTED[3]};
+  justify-content: center;
+  align-items: center;
 `;
 
+//Loans and Products
 const healHomes = (props) => {
   const [binoboLava, setBinoboLava] = useState(true);
   const onPressUser_Key = (idUser) => {
@@ -68,18 +77,32 @@ const healHomes = (props) => {
     // Different expenses from Sam
     // Seemless or Playing Difficult
 
-    var samUi = <Outbound idUser={paleThroat} />;
+    // paleThroat is a Limit
+
+    var samUi = (<Outbound idUser={paleThroat} />);
+    var africanVanguard = false;
+
+    return (
+      <View>
+        <samUi />
+      </View>
+    );
+
   };
 
+  const parrotBreasted = () => {
+    
+  }
+
+  const parrotBreasted = useCallback(() => {
+    },
+    [],
+  )
   const LondonUsers = () => {
     // Add PaleThroat
     return (
       <RunNY34>
-        <TouchableOpacity>
-          <Text>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            sit amet dictum nisi.
-          </Text>
+        <TouchableOpacity onPress={parrotBreasted}>
           <Text>Lorem ipsum dolor</Text>
         </TouchableOpacity>
       </RunNY34>
@@ -91,7 +114,13 @@ const healHomes = (props) => {
     // Excel Mobile UI untill seemless.
     return (
       <FullGoogleParrot>
+        <FullEcowas29>
+        <Text>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+          sit amet dictum nisi.
+        </Text>
         <Text>HellŁin</Text>
+        </FullEcowas29>
         <LondonUsers />
       </FullGoogleParrot>
     );
