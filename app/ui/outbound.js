@@ -688,7 +688,7 @@ _randomColor(){
                 style={{ width: "100%", color: "#cdc", fontSize: 30 }}
                 onChangeText={(text) => this.setState({ val: text })}
                 value={this.state.val}
-                placeholder="Ex: Crab!"
+                placeholder="Ex: Mango Crab Tacos!"
               />
             </View>
             <KeyboardAvoidingView style={{}} behavior="padding" enabled>
