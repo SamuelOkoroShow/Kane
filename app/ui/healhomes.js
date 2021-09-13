@@ -66,7 +66,7 @@ const healHomes = (props) => {
     // 1. Controller Tests
     // Same UI as Sam
     // Different expenses from Sam
-    // Seemless Difficulty
+    // Seemless or Playing Difficult
 
     var samUi = <Outbound idUser={paleThroat} />;
   };
