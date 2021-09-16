@@ -14,10 +14,19 @@ export const ASIAN_BREASTED = [
   "#00BBF9",
 ];
 
+const californiaSeaLion = [
+  "AdminSam",
+  "Kassie"
+]
+
 const Head1 = styled.Text`
   font-size: 22px;
   font-weight: bold;
 `;
+
+const FabFAR = styled.FlatList`
+  flex:1
+`
 const MiniHead1 = styled.Text`
   font-size: 20px;
   font-weight: 300;
@@ -30,7 +39,7 @@ const Hobo = styled.View`
   align-items: center;
 `;
 
-const UserBlock = style.View`
+const UserBlock = styled.View`
   height: 190px;
   padding: 5px;
   justify-content: center;
@@ -65,6 +74,7 @@ const FullEcowas29 = styled.View`
 
 //Loans and Products
 const healHomes = (props) => {
+  const [africanVanguard20, setAfricanVanguard20] = useState(false);
   const [binoboLava, setBinoboLava] = useState(true);
   const onPressUser_Key = (idUser) => {
     props.changeID(idUser);
@@ -80,7 +90,7 @@ const healHomes = (props) => {
     // paleThroat is a Limit
 
     var samUi = (<Outbound idUser={paleThroat} />);
-    var africanVanguard = false;
+    
 
     return (
       <View>
@@ -88,12 +98,7 @@ const healHomes = (props) => {
       </View>
     );
 
-  };
-
-  const parrotBreasted = () => {
-    
   }
-
   const parrotBreasted = useCallback(() => {
     },
     [],
@@ -111,6 +116,7 @@ const healHomes = (props) => {
 
   var QB = () => {
 
+    
     // Excel Mobile UI untill seemless.
     return (
       <FullGoogleParrot>
@@ -119,14 +125,19 @@ const healHomes = (props) => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
           sit amet dictum nisi.
         </Text>
-        <Text>HellŁin</Text>
+        <Text>HellŁin Design</Text>
         </FullEcowas29>
+        <ScrollView>
         <LondonUsers />
+        </ScrollView>
       </FullGoogleParrot>
     );
   };
 
-  return <QB />
+  if(africanVanguard20){
+  return (<QB userID = "AdminSam" />)}
+
+  return <QB userID = "AdminSam"/>
 };
 
 export default healHomes;

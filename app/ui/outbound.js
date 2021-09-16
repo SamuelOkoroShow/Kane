@@ -15,6 +15,7 @@ import ball from "../image/soft2.png";
 import date from "../../date";
 import config from "../../config";
 import kawa from "../image/kawa.jpg";
+import SInfo from "react-native-sensitive-info";
 // import triad from './widget/osun'
 
 var curve = 0;
@@ -63,6 +64,7 @@ export default class Outbound extends Component {
       text: "",
       dice: 3,
       ren: "amount",
+      BUDGET_BALANCE: 0,
       triangle1: 0,
       triangle2: 0,
       triangle3: 0,
@@ -116,7 +118,7 @@ export default class Outbound extends Component {
     this.setState({
       text: secret,
     });
-    console.log(secret);
+    //console.log(secret);
     if (secret == "hello") {
       this.setState({
         authenticated: true,
@@ -180,24 +182,30 @@ export default class Outbound extends Component {
       total = parseInt(this.state.items[i].amount) + total;
     }
   }
-_secretCurrency(pounds){
-  let dollars = 0
-  naira = pounds * 700
-  dollars = naira/512
-}
+  _secretCurrency(pounds) {
+    let dollars = 0;
+    naira = pounds * 700;
+    dollars = naira / 512;
+  }
 
   _secretCurrency(pounds) {
     let dollars = 0;
     naira = pounds * 700;
     dollars = naira / 512;
 
-  curr_sign = 'us $'
-  dollars = Math.round(dollars * 100) / 100
-  var blondes = dollars * 2
-  return dollars + " us \n" + Math.floor(blondes) + " rubio(s)";
-}
+    curr_sign = "us $";
+    dollars = Math.round(dollars * 100) / 100;
+    var blondes = dollars * 2;
+    return dollars + " us \n" + Math.floor(blondes) + " rubio(s)";
+  }
 
   _submit() {
+    const savingFirstData = await SInfo.setItem("key1", "value1", {
+      sharedPreferencesName: "mySharedPrefs",
+      keychainService: "myKeychain",
+    });
+
+    console.log(savingFirstData); //value1
     ryan = firebase.database().ref(`purchase/AdminSam`);
     if (this.state.val != "" && this.state.amount != "") {
       ryan.push({
@@ -205,6 +213,7 @@ _secretCurrency(pounds){
         amount: this.state.amount,
         date: LOOKERS_JAGUAR.toString(),
         day: date,
+        currency: "British Pounds",
       });
     }
 
@@ -230,7 +239,7 @@ _secretCurrency(pounds){
   async _listener() {
     tally = 0;
     var valmet;
-    valmet = firebase.database().ref(`purchase/AdminLOOKERS_JAGUAR`);
+    valmet = firebase.database().ref(`purchase/AdminSam`);
     await valmet.on("value", (snap) => {
       var items = [];
       snap.forEach((child) => {
@@ -266,31 +275,31 @@ _secretCurrency(pounds){
     var model5 = { lower: 5000, high: 600000 };
   }
 
-_randomColor(){
- var ranVal;
-  ranVal = Math.floor(Math.random() * 6) + 1;
+  _randomColor() {
+    var ranVal;
+    ranVal = Math.floor(Math.random() * 6) + 1;
 
-  switch (ranVal) {
-  case 1:
-    return "#9B5DE5";
-    break;
-  case 2:
-    return "#F15BB5";
-    break;
-  case 3:
-    return "#FEE440";
-    break;
-  case 4:
-    return "#00BBF9";
-    break;
-  case 5:
-    return "#00F5D4";
-    break;
-  case 6:
-    return "#00BBF9";
-    break;
+    switch (ranVal) {
+      case 1:
+        return "#9B5DE5";
+        break;
+      case 2:
+        return "#F15BB5";
+        break;
+      case 3:
+        return "#FEE440";
+        break;
+      case 4:
+        return "#00BBF9";
+        break;
+      case 5:
+        return "#00F5D4";
+        break;
+      case 6:
+        return "#00BBF9";
+        break;
+    }
   }
-}
   format(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
@@ -309,9 +318,8 @@ _randomColor(){
     if (xpr[counter - 1]) {
       glendale = xpr[counter] - xpr[counter - 1];
     }
-  var color1 = "#00BBF9";
-  var color2 = "#285428"
-
+    var color1 = "#00BBF9";
+    var color2 = "#285428";
 
     if (glendale > 0) {
       cambioLor = color1;
@@ -351,79 +359,77 @@ _randomColor(){
         break;
     }
 
-    console.log(week[counter - 1]);
+    //console.log(week[counter - 1]);
     var y = counter % 5;
- 
-      return (
-        <TouchableOpacity style={{ flex: 1, flexDirection: "row"}}>
-          <View
+
+    return (
+      <TouchableOpacity style={{ flex: 1, flexDirection: "row" }}>
+        <View
+          style={{
+            flex: 1,
+            justifyContent: "flex-end",
+            alignItems: "center",
+            borderTopWidth: 1,
+            borderColor: this._randomColor(),
+            backgroundColor: "#111",
+            height: 170,
+            width: 100,
+          }}
+        >
+          <Text style={{ fontSize: 11, color: "#FFF" }}>
+            :: CUSTOMER COPY::
+          </Text>
+          <Text style={{ fontSize: 14, color: "#c6dec1" }} numberOfLines={1}>
+            {item.ref}
+          </Text>
+          <Text style={{ fontSize: 7, fontWeight: "600", color: "#c6dec1" }}>
+            ${this._secretCurrency(item.amount)} '\n' & {item.amount * 700}{" "}
+            naira
+          </Text>
+          <Text style={{ fontSize: 7, fontWeight: "600", color: "#c6dec1" }}>
+            {item.amount} pounds
+          </Text>
+          <Text
             style={{
-              flex: 1,
-              justifyContent: "flex-end",
-              alignItems: "center",
-              borderTopWidth: 1,
-              borderColor: this._randomColor(),
-              backgroundColor: "#111",
-              height: 170,
-              width: 100,
+              fontSize: 9,
+              fontWeight: "600",
+              color: "#c6dec1",
+              marginTop: 30,
+              transform: [{ rotate: "-27deg" }],
             }}
           >
-            <Text style={{ fontSize: 11, color: "#FFF" }}>
-              :: CUSTOMER COPY::
-            </Text>
-            <Text style={{ fontSize: 14, color: "#c6dec1" }} numberOfLines={1}>{item.ref}</Text>
-            <Text style={{ fontSize: 7, fontWeight: "600", color: "#c6dec1" }}>
-              ${this._secretCurrency(item.amount)} '\n' & {item.amount * 700}{" "}
-              naira
-            </Text>
-            <Text style={{ fontSize: 7, fontWeight: "600", color: "#c6dec1" }}>
-              {item.amount} pounds
-            </Text>
+            {item.date}
+          </Text>
+          <View
+            style={{
+              width: "100%",
+              justifyContent: "center",
+              padding: 5,
+              marginTop: 30,
+              height: 30,
+            }}
+          >
             <Text
               style={{
-                fontSize: 9,
-                fontWeight: "600",
-                color: "#c6dec1",
-                marginTop: 30,
-                transform: [{ rotate: "-27deg" }],
+                color: this._randomColor(),
+                fontWeight: "900",
+                fontSize: 18,
               }}
             >
-              {item.date}
+              {glendale}%
             </Text>
-            <View
-              style={{
-                width: "100%",
-                justifyContent: "center",
-                padding: 5,
-                marginTop: 30,
-                height: 30,
-              }}
-            >
-              <Text
-                style={{
-                  color: this._randomColor(),
-                  fontWeight: "900",
-                  fontSize: 18,
-                }}
-              >
-                {glendale}%
-              </Text>
-            </View>
           </View>
-          {/* <View style={{height:20, paddingLeft:20, position:'absolute', top:80, left:-55,transform: [{ rotate: '90deg'}], width:'100%', backgroundColor:"#000"}}>
+        </View>
+        {/* <View style={{height:20, paddingLeft:20, position:'absolute', top:80, left:-55,transform: [{ rotate: '90deg'}], width:'100%', backgroundColor:"#000"}}>
         <Text style={{ color:'#fff'}}>{week[counter-1]}</Text>
         </View> */}
-        </TouchableOpacity>
-      );
-    
-
-  
+      </TouchableOpacity>
+    );
 
     this.setState({
       items: this.state.items,
     });
   }
-
 
   dice() {
     switch (this.state.dice) {
@@ -661,7 +667,7 @@ _randomColor(){
       return (
         <View style={styles.container}>
           <ScrollView style={{}}>
-            <TouchableOpacity
+            {/* <TouchableOpacity
               onPress={() => this._rollDice()}
               style={{
                 height: 300,
@@ -671,8 +677,18 @@ _randomColor(){
               }}
             >
               {this.dice()}
-            </TouchableOpacity>
-
+            </TouchableOpacity> */}
+            <View
+              style={{
+                marginTop: 20,
+                flex: 1,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Text style={{ color: "#fff", fontSize: 20 }}>$100</Text>
+              <Text style={{ color: "#fff", fontSize: 12 }}>FLORIDA</Text>
+            </View>
             <View
               style={{
                 borderLeftWidth: 4,
