@@ -199,14 +199,14 @@ export default class Outbound extends Component {
     return dollars + " us \n" + Math.floor(blondes) + " rubio(s)";
   }
 
-  _submit() {
+  async _submit () {
     const savingFirstData = await SInfo.setItem("key1", "value1", {
       sharedPreferencesName: "mySharedPrefs",
       keychainService: "myKeychain",
     });
 
     console.log(savingFirstData); //value1
-    ryan = firebase.database().ref(`purchase/AdminSam`);
+    ryan = firebase.database().ref(`purchase/${props.samuelUser}`);
     if (this.state.val != "" && this.state.amount != "") {
       ryan.push({
         ref: this.state.val,
@@ -222,6 +222,8 @@ export default class Outbound extends Component {
       amount: "",
     });
   }
+
+  // Firebase Trig until Utility Viechle.
 
   _edit(value) {
     // Edit can update
@@ -239,7 +241,7 @@ export default class Outbound extends Component {
   async _listener() {
     tally = 0;
     var valmet;
-    valmet = firebase.database().ref(`purchase/AdminSam`);
+    valmet = firebase.database().ref(`purchase/${props.samuelUser}`);
     await valmet.on("value", (snap) => {
       var items = [];
       snap.forEach((child) => {
