@@ -56,7 +56,8 @@ var curr_sign = "N";
 
 export default class Outbound extends Component {
   constructor(props) {
-    super();
+    super(props);
+    console.log(props)
     this.state = {
       val: "",
       amount: "",
@@ -200,13 +201,11 @@ export default class Outbound extends Component {
   }
 
   async _submit () {
-    const savingFirstData = await SInfo.setItem("key1", "value1", {
-      sharedPreferencesName: "mySharedPrefs",
-      keychainService: "myKeychain",
-    });
+    // Repair $112 chain.
+    
 
     console.log(savingFirstData); //value1
-    ryan = firebase.database().ref(`purchase/${props.samuelUser}`);
+    ryan = firebase.database().ref(`purchase/${this.props.samuelUser}`);
     if (this.state.val != "" && this.state.amount != "") {
       ryan.push({
         ref: this.state.val,
@@ -216,7 +215,10 @@ export default class Outbound extends Component {
         currency: "British Pounds",
       });
     }
-
+// const savingFirstData = await SInfo.setItem("key1", "value1", {
+//   sharedPreferencesName: "mySharedPrefs",
+//   keychainService: "myKeychain",
+// });
     this.setState({
       val: "",
       amount: "",
@@ -241,7 +243,8 @@ export default class Outbound extends Component {
   async _listener() {
     tally = 0;
     var valmet;
-    valmet = firebase.database().ref(`purchase/${props.samuelUser}`);
+    console.log(this.props)
+    valmet = firebase.database().ref(`purchase/${this.props.samuelUser}`);
     await valmet.on("value", (snap) => {
       var items = [];
       snap.forEach((child) => {

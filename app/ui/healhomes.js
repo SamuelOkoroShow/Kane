@@ -114,7 +114,7 @@ const healHomes = (props) => {
   }, []);
   var _chouColor = () => {
     var ranVal;
-    ranVal = Math.floor(Math.random() * 5) + 1;
+    ranVal = Math.floor(Math.random() * 6) + 1;
 
     switch (ranVal) {
       case 1:
@@ -137,8 +137,9 @@ const healHomes = (props) => {
         break;
     }
   };
-  const LondonUsers = (samuelUser) => {
+  const LondonUsers = (data) => {
     // Add PaleThroat
+    const samuelUser = data.samuelUser;
     const paleBalm = () => parrotBreasted(samuelUser);
     console.log(samuelUser)
     return (
@@ -153,10 +154,12 @@ const healHomes = (props) => {
             margin:5,
             padding:14,
             backgroundColor: _chouColor(),
+            borderBottomWidth: 2,
+            borderColor: _chouColor()
           }}
           onPress={paleBalm}
         >
-          <Text>{samuelUser.item.toUpperCase()}</Text>
+          <Text style={{color:"#88"}}>{samuelUser.toUpperCase()}</Text>
         </TouchableOpacity>
       </RunNY34>
     );
@@ -166,13 +169,7 @@ const healHomes = (props) => {
     // Excel Mobile UI untill seemless.
     return (
       <FullGoogleParrot>
-        <FlatList
-        style={{height:300}}
-          contentContainerStyle={{justifyContent:'space-between'}}
-          numColumns={3}
-          renderItem={(userID, index) => <LondonUsers key={index} {...userID} />}
-          data={californiaSeaLion}
-        />
+        {californiaSeaLion.map((data) => <LondonUsers samuelUser = {data} />)}
       </FullGoogleParrot>
     );
   };
