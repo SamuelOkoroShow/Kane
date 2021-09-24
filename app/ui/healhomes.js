@@ -25,9 +25,9 @@ export const ASIAN_BREASTED = [
 const californiaSeaLion = [
   "AdminSam",
   "Kassie",
-  "Tomoku",
-  "Shingawa",
-  "Tojoku",
+  "Gabby",
+  "Kristen",
+  "Kasandra",
 ];
 
 const Head1 = styled.Text`
@@ -84,6 +84,8 @@ const FullEcowas29 = styled.View`
   align-items: center;
 `;
 
+const beliex = "#000"
+
 //Loans and Products
 const healHomes = (props) => {
   const [africanVanguard20, setAfricanVanguard20] = useState(false);
@@ -95,17 +97,17 @@ const healHomes = (props) => {
 
   const westBreasted = (paleThroat) => {
     // 1. Controller Tests
-    // Same UI as Sam
-    // Different expenses from Sam
+    // Same UI as Samuel
+    // Different expenses from Samuel
     // Seemless or Playing Difficult
 
     // paleThroat is a Limit
 
-    var samUi = <Outbound idUser={paleThroat} />;
+    var samuelUi = <Outbound idUser={paleThroat} />;
 
     return (
       <View>
-        <samUi />
+        <samuelUi />
       </View>
     );
   };
@@ -148,18 +150,17 @@ const healHomes = (props) => {
           opacity={0.3}
           style={{
             flex:1,
-            opacity:0.4,
             alignItems:'center',
             justifyContent:'center',
             margin:5,
             padding:14,
-            backgroundColor: _chouColor(),
+            backgroundColor: beliex ,
             borderBottomWidth: 2,
             borderColor: _chouColor()
           }}
           onPress={paleBalm}
         >
-          <Text style={{color:"#88"}}>{samuelUser.toUpperCase()}</Text>
+          <Text style={{color:_chouColor()}}>{samuelUser.toUpperCase()}</Text>
         </TouchableOpacity>
       </RunNY34>
     );
