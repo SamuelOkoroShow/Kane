@@ -170,7 +170,7 @@ const healHomes = (props) => {
     // Excel Mobile UI untill seemless.
     return (
       <FullGoogleParrot>
-        {californiaSeaLion.map((data) => <LondonUsers samuelUser = {data} />)}
+        {californiaSeaLion.map((data, index) => <LondonUsers key={index} samuelUser = {data} />)}
       </FullGoogleParrot>
     );
   };

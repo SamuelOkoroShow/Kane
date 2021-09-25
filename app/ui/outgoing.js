@@ -205,7 +205,7 @@ export default class Outbound extends Component {
     // Repair $112 chain.
     
 
-    console.log(savingFirstData); //value1
+    // console.log(savingFirstData); //value1
     ryan = firebase.database().ref(`purchase/${this.props.samuelUser}`);
     if (this.state.val != "" && this.state.amount != "") {
       ryan.push({

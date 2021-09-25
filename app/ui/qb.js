@@ -19,42 +19,47 @@ const Hobo = styled.View`
 `;
 
 // This is a tempurary name
-const qbBall33 = styled.View`
-    width:40px;
+const QbBall33 = styled.View`
+    width:60px;
     height:2px;
-    border-radius:12;
-    transform: [{ rotate: "-3.14deg" }];
+    margin-top:110px;
+    border-radius:2px;
+    transform: rotate(-32deg);
     backgroundColor:${color[0].hex};
 `;
-const qbBall40 = styled.View`
+const QbBall40 = styled.View`
     width:30px;
     height:2px;
-    border-radius:12;
-    transform: [{ rotate: "-3.14deg" }];
+    margin-left:-20px;
+    margin-top:105px;
+    border-radius:2px;
+    transform: rotate(-90deg);
     backgroundColor:${color[0].hex};
 `;
 
 // Missing angle
-const qbBall90 = styled.View`
-    margin-top:40px;
+const QbBall90 = styled.View`
+    margin-top:120px;
     width:50px;
     height:2px;
-    border-radius:12;
-    transform: [{ rotate: "40deg" }];
+    margin-left:-63px;
+    transform: rotate(180deg);
+    border-radius:2px;
+
     backgroundColor:${color[0].hex};
 `;
 
-const qbAndroid = styled.View`
+const QbAndroid = styled.View`
     width: 50px;
     height:1px;
 `
-export default function qb() {
+export default function Qb() {
 
     return (
-        <View style={{flex:1, flexDirection:'row', alignContent:'center', justifyContent:'center', flex:1}}>
-            <qbBall33 />
-            <qbBall40 />
-            <qbBall90 />
+        <View style={{flex:1, flexDirection:'row', alignContent:'center', justifyContent:'center'}}>
+            <QbBall33 />
+            <QbBall40 />
+            <QbBall90 />
         </View>
     )
 }

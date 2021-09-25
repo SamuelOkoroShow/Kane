@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import Oshee33 from './app/ui/healhomes'
 //import Router from './app/ui/router'
 import GithubCigarette from './app/ui/outgoing'
-
+import QB from './app/ui/qb'
 const navigatieFAR = () => {
 
 }
@@ -21,10 +21,11 @@ const App = () => {
 
 
 	return (<View style={{flex:1}}>
-		{changeID === "Admin"?
+		{/* {changeID === "Admin"?
 		<Oshee33 route={_AdminSam} />:
 		<GithubCigarette samuelUser = {changeID} />
-		}
+		} */}
+		<QB />
 		<StatusBar hidden />
 		</View>
 	)
