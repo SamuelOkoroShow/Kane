@@ -3,7 +3,7 @@ import React, {Component, useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Oshee33 from './app/ui/healhomes'
 //import Router from './app/ui/router'
-import GithubCigarette from './app/ui/outgoing'
+import GithubCigar from './app/ui/outgoing'
 import QB from './app/ui/qb'
 const navigatieFAR = () => {
 
@@ -13,7 +13,7 @@ const navigatieFAR = () => {
 
 
 const App = () => {
-	const [changeID, useChangeID] = useState("Admin")
+	const [changeID, useChangeID] = useState("Sam")
 
 	const _AdminSam = (samuelUser) => {
 		useChangeID(samuelUser)
@@ -21,12 +21,11 @@ const App = () => {
 
 
 	return (<View style={{flex:1}}>
-		{/* {changeID === "Admin"?
+		 {changeID === "Admin"?
 		<Oshee33 route={_AdminSam} />:
-		<GithubCigarette samuelUser = {changeID} />
-		} */}
-		<QB />
-		<StatusBar hidden />
+		<GithubCigar samuelUser = {"AdminSam"} />
+		} 
+		<StatusBar />
 		</View>
 	)
 }

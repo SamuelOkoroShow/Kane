@@ -16,8 +16,7 @@ import ball from "../image/soft2.png";
 import date from "../../date";
 import config from "../../config";
 import kawa from "../image/kawa.jpg";
-import SInfo from "react-native-sensitive-info";
-// import triad from './widget/osun'
+import * as SecureStore from 'expo-secure-store';
 
 var curve = 0;
 var letter_of_employment;
@@ -75,10 +74,13 @@ export default class Outbound extends Component {
       items: [],
       triangles: [],
       authenticated: true,
+      dollarCountDown: 60
     };
   }
   componentDidMount() {
     this._listener();
+    this.getValueFor("Florida")
+
     //   var cache = new Cache({
     //     namespace: "myapp",
     //     policy: {
@@ -96,6 +98,22 @@ export default class Outbound extends Component {
     //     // 'hello'
     // });
   }
+
+  async save(key, value) {
+    // alert("Stored " + SecureStore.isAvailableAsync());
+     await SecureStore.setItemAsync(key, value);
+   }
+   
+   async getValueFor(key) {
+     let result = await SecureStore.getItemAsync(key);
+     if (result) {
+      this.setState({
+        dollarCountDown: parseInt(result)
+      })
+     } else {
+       alert('No values stored under that key.');
+     }
+   }
 
   mascular(x) {
     if (x > curve) {
@@ -129,7 +147,7 @@ export default class Outbound extends Component {
   }
 
   booyaka() {
-    if (this.state.text == consolid) {
+    if (this.state.text === consolid) {
       this.setState({
         authenticated: true,
       });
@@ -184,16 +202,11 @@ export default class Outbound extends Component {
       total = parseInt(this.state.items[i].amount) + total;
     }
   }
-  _secretCurrency(pounds) {
-    let dollars = 0;
-    naira = pounds * 700;
-    dollars = naira / 512;
-  }
 
   _secretCurrency(pounds) {
     let dollars = 0;
     naira = pounds * 700;
-    dollars = naira / 512;
+    dollars = naira / 570;
 
     curr_sign = "us $";
     dollars = Math.round(dollars * 100) / 100;
@@ -216,6 +229,16 @@ export default class Outbound extends Component {
         currency: "British Pounds",
       });
     }
+
+    const dollarConversion = this.state.amount * 1.3
+    this.save("Stanford", Math.floor(this.state.dollarCountDown - dollarConversion).toString())
+
+    this.setState({
+      dollarCountDown: Math.floor(this.state.dollarCountDown - dollarConversion)
+    })
+
+    
+
 // const savingFirstData = await SInfo.setItem("key1", "value1", {
 //   sharedPreferencesName: "mySharedPrefs",
 //   keychainService: "myKeychain",
@@ -266,10 +289,10 @@ export default class Outbound extends Component {
   }
 
   _rollDice() {
-    var ranVal;
-    ranVal = Math.floor(Math.random() * 6) + 1;
+    var dice;
+    dice = Math.floor(Math.random() * 6) + 1;
     this.setState({
-      dice: ranVal,
+      dice,
     });
   }
 
@@ -422,7 +445,7 @@ export default class Outbound extends Component {
                 fontSize: 18,
               }}
             >
-              {glendale}%
+              
             </Text>
           </View>
         </View>
@@ -692,8 +715,8 @@ export default class Outbound extends Component {
                 alignItems: "center",
               }}
             >
-              <Text style={{ color: "#fff", fontSize: 20 }}>$100</Text>
-              <Text style={{ color: "#fff", fontSize: 12 }}>FLORIDA</Text>
+              <Text style={{ color: "#fff", fontSize: 20 }}>${this.state.dollarCountDown}</Text>
+              <Text style={{ color: "#fff", fontSize: 12 }}>FX Stanford FL</Text>
             </View>
             <View
               style={{
@@ -764,7 +787,7 @@ export default class Outbound extends Component {
             </KeyboardAvoidingView>
             <View style={{ flex: 1 }}>
               <FlatList
-                data={this.state.items}
+                data={this.state.items.slice().reverse()}
                 numColumns={3}
                 renderItem={({ item }) => this._debitCard(item)}
               />
