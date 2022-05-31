@@ -71,6 +71,7 @@ export default class Outbound extends Component {
       triangle3: 0,
       triangle4: 0,
       triangle5: 0,
+      // useEffectSwitch: false,
       items: [],
       triangles: [],
       authenticated: true,
@@ -80,6 +81,14 @@ export default class Outbound extends Component {
   componentDidMount() {
     this._listener();
     this.getValueFor("Florida")
+
+    if(this.state.useEffectSwitch){
+      // this.powerControl();
+
+    this.setState({
+      useEffectSwitch: true
+    })
+}
 
     //   var cache = new Cache({
     //     namespace: "myapp",
@@ -97,6 +106,15 @@ export default class Outbound extends Component {
     //     console.log(value);
     //     // 'hello'
     // });
+  }
+
+  powerControl() {
+    const dollarAllowance = 77.77
+    this.setState(
+      {
+        dollarCountDown: this.state.dollarCountDown + dollarAllowance,
+      }
+    )
   }
 
   async save(key, value) {
@@ -226,12 +244,12 @@ export default class Outbound extends Component {
         amount: this.state.amount,
         date: LOOKERS_JAGUAR.toString(),
         day: date,
-        currency: "British Pounds",
+        currency: "Mexican Pesos",
       });
     }
 
-    const dollarConversion = this.state.amount * 1.3
-    this.save("Stanford", Math.floor(this.state.dollarCountDown - dollarConversion).toString())
+    const dollarConversion = this.state.amount / 18.3
+    this.save("Florida", Math.floor(this.state.dollarCountDown - dollarConversion).toString())
 
     this.setState({
       dollarCountDown: Math.floor(this.state.dollarCountDown - dollarConversion)
@@ -411,12 +429,12 @@ export default class Outbound extends Component {
           <Text style={{ fontSize: 14, color: "#c6dec1" }} numberOfLines={1}>
             {item.ref}
           </Text>
-          <Text style={{ fontSize: 7, fontWeight: "600", color: "#c6dec1" }}>
+          {/* <Text style={{ fontSize: 7, fontWeight: "600", color: "#c6dec1" }}>
             ${this._secretCurrency(item.amount)} '\n' & {item.amount * 700}{" "}
             naira
-          </Text>
+          </Text> */}
           <Text style={{ fontSize: 7, fontWeight: "600", color: "#c6dec1" }}>
-            {item.amount} pounds
+            {item.amount / 25} pounds
           </Text>
           <Text
             style={{
