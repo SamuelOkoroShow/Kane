@@ -81,6 +81,7 @@ export default class Outbound extends Component {
   componentDidMount() {
     this._listener();
     this.getValueFor("Florida")
+    //payload.profile.hp();
 
     if(this.state.useEffectSwitch){
       // this.powerControl();
@@ -129,7 +130,7 @@ export default class Outbound extends Component {
         dollarCountDown: parseInt(result)
       })
      } else {
-       alert('No values stored under that key.');
+      // alert('No values stored under that key.');
      }
    }
 
