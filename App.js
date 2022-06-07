@@ -31,9 +31,8 @@ const App = () => {
 	// 	<StatusBar />
 	// 	</View>
 	// )
-	return (
-		<AnimatedCircles />
-	)
+	return(<AnimatedCircles />)
+
 }
 
 export default App
