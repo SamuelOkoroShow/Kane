@@ -1,0 +1,317 @@
+{
+  "-N3BUFuKtRt3_bnRGCnV": {
+    "amount": "5",
+    "currency": "British Pounds",
+    "date": "Sat May 28 2022 15:32:53 GMT-0500 (CDT)",
+    "day": "Saturday",
+    "ref": "Uber ride"
+  },
+  "-N3CZmFFykY53zLNRZx_": {
+    "amount": "17",
+    "currency": "British Pounds",
+    "date": "Sat May 28 2022 21:08:42 GMT-0500 (CDT)",
+    "day": "Saturday",
+    "ref": "Blue Pepper "
+  },
+  "-N3GICRbrlWLpW6pT10j": {
+    "amount": "1",
+    "currency": "British Pounds",
+    "date": "Sun May 29 2022 14:30:03 GMT-0500 (CDT)",
+    "day": "Domingo",
+    "ref": "Engineering Manager issue"
+  },
+  "-N3GISLZhCrzTb2hqQan": {
+    "amount": "3",
+    "currency": "British Pounds",
+    "date": "Sun May 29 2022 14:30:03 GMT-0500 (CDT)",
+    "day": "Domingo",
+    "ref": "Pollo Dinner "
+  },
+  "-N3GItImK2Gjwj1XQN2c": {
+    "amount": "0.70",
+    "currency": "British Pounds",
+    "date": "Sun May 29 2022 14:30:03 GMT-0500 (CDT)",
+    "day": "Domingo",
+    "ref": "Fruita Smoothie "
+  },
+  "-N3GJPJN1G_CkW5HUkm2": {
+    "amount": "40",
+    "currency": "British Pounds",
+    "date": "Sun May 29 2022 14:30:03 GMT-0500 (CDT)",
+    "day": "Domingo",
+    "ref": "Unión FastBoard"
+  },
+  "-N3GS3JpO7kd1Vi4_yWW": {
+    "amount": "1",
+    "currency": "British Pounds",
+    "date": "Sun May 29 2022 14:30:03 GMT-0500 (CDT)",
+    "day": "Domingo",
+    "ref": "Nail clippers"
+  },
+  "-N3MpWK0pm-i8futxjeP": {
+    "amount": "1.25",
+    "currency": "British Pounds",
+    "date": "Mon May 30 2022 19:06:45 GMT-0500 (CDT)",
+    "day": "Monday",
+    "ref": "Starbucks"
+  },
+  "-N3Mps68u8bQIl8i-qTw": {
+    "amount": "40",
+    "currency": "British Pounds",
+    "date": "Mon May 30 2022 19:06:45 GMT-0500 (CDT)",
+    "day": "Monday",
+    "ref": "Glenfiddich "
+  },
+  "-N3Mq3VPLINiXwcsMGX0": {
+    "amount": "2.50",
+    "currency": "British Pounds",
+    "date": "Mon May 30 2022 19:06:45 GMT-0500 (CDT)",
+    "day": "Monday",
+    "ref": "Honey "
+  },
+  "-N3MqFjmifJ7sJy8n6fY": {
+    "amount": "1.50",
+    "currency": "British Pounds",
+    "date": "Mon May 30 2022 19:06:45 GMT-0500 (CDT)",
+    "day": "Monday",
+    "ref": "Strawberry Cocktail "
+  },
+  "-N3QzAPCtugdigHfj6F8": {
+    "amount": "52",
+    "currency": "British Pounds",
+    "date": "Tue May 31 2022 16:18:43 GMT-0500 (CDT)",
+    "day": "Tuesday",
+    "ref": "Tacos Bear"
+  },
+  "-N3R-8zGngDfElHnd1iS": {
+    "amount": "33",
+    "currency": "Mexican Pesos",
+    "date": "Tue May 31 2022 22:21:02 GMT+0100 (WAT)",
+    "day": "Tuesday",
+    "ref": "Coffee"
+  },
+  "-N3dry3wBjH1LlKvrY2q": {
+    "amount": "33",
+    "currency": "Mexican Pesos",
+    "date": "Fri Jun 03 2022 09:00:22 GMT-0500 (CDT)",
+    "day": "Friday",
+    "ref": "Gatorade"
+  },
+  "-N3ds1dw5jpADMJ5yVbE": {
+    "amount": "20",
+    "currency": "Mexican Pesos",
+    "date": "Fri Jun 03 2022 09:00:22 GMT-0500 (CDT)",
+    "day": "Friday",
+    "ref": "Soda water "
+  },
+  "-N3ds8G7fumcaZq5hvKE": {
+    "amount": "0",
+    "currency": "Mexican Pesos",
+    "date": "Fri Jun 03 2022 09:00:22 GMT-0500 (CDT)",
+    "day": "Friday",
+    "ref": "Lunch"
+  },
+  "-N3dsL1bhGo6hZBpqu_3": {
+    "amount": "50",
+    "currency": "Mexican Pesos",
+    "date": "Fri Jun 03 2022 09:00:22 GMT-0500 (CDT)",
+    "day": "Friday",
+    "ref": "7 Fantas"
+  },
+  "-N3fjffxJANRbnPY_p_o": {
+    "amount": "100",
+    "currency": "Mexican Pesos",
+    "date": "Fri Jun 03 2022 17:44:52 GMT-0500 (CDT)",
+    "day": "Friday",
+    "ref": "Cheeseburger "
+  },
+  "-N3gUqSIMPBkxB79Eg9S": {
+    "amount": "200",
+    "currency": "Mexican Pesos",
+    "date": "Fri Jun 03 2022 21:15:24 GMT-0500 (CDT)",
+    "day": "Friday",
+    "ref": "Strawberry "
+  },
+  "-N3lVmBQJPMt7st_IKmR": {
+    "amount": "200",
+    "currency": "Mexican Pesos",
+    "date": "Sat Jun 04 2022 20:37:17 GMT-0500 (CDT)",
+    "day": "Saturday",
+    "ref": "Burger"
+  },
+  "-N3lWEHrT5niAN5vF3Yh": {
+    "amount": "27",
+    "currency": "Mexican Pesos",
+    "date": "Sat Jun 04 2022 20:37:17 GMT-0500 (CDT)",
+    "day": "Saturday",
+    "ref": "Coffee"
+  },
+  "-N3oyvNmTWXuzSfaWkUK": {
+    "amount": "399",
+    "currency": "Mexican Pesos",
+    "date": "Sun Jun 05 2022 12:48:13 GMT-0500 (CDT)",
+    "day": "Domingo",
+    "ref": "Battlefield V"
+  },
+  "-N3p44obP31mpej10Sy9": {
+    "amount": "68",
+    "currency": "Mexican Pesos",
+    "date": "Sun Jun 05 2022 12:48:13 GMT-0500 (CDT)",
+    "day": "Domingo",
+    "ref": "Cheese sandwich"
+  },
+  "-N3qbPztirQDFozstaoY": {
+    "amount": "165",
+    "currency": "Mexican Pesos",
+    "date": "Sun Jun 05 2022 20:24:25 GMT-0500 (CDT)",
+    "day": "Domingo",
+    "ref": "Gatorade "
+  },
+  "-N3tUtFWBbhhkio0CkYJ": {
+    "amount": "33",
+    "currency": "Mexican Pesos",
+    "date": "Mon Jun 06 2022 09:50:19 GMT-0500 (CDT)",
+    "day": "Monday",
+    "ref": "Coffee"
+  },
+  "-N3u5c0viZz6Fi9Tz62D": {
+    "amount": "154",
+    "currency": "Mexican Pesos",
+    "date": "Mon Jun 06 2022 12:40:03 GMT-0500 (CDT)",
+    "day": "Monday",
+    "ref": "ATM fees"
+  },
+  "-N3u5lil1fCSZeNVFAHm": {
+    "amount": "37",
+    "currency": "Mexican Pesos",
+    "date": "Mon Jun 06 2022 12:40:03 GMT-0500 (CDT)",
+    "day": "Monday",
+    "ref": "Tecate fees"
+  },
+  "-N3zGj7P1TH_GQCIeNPr": {
+    "amount": "499",
+    "currency": "Mexican Pesos",
+    "date": "Tue Jun 07 2022 12:46:31 GMT-0500 (CDT)",
+    "day": "Tuesday",
+    "ref": "C&A Vintage Jeans"
+  },
+  "-N4-GEWOhBmbQ-ua0bLN": {
+    "amount": "159",
+    "currency": "Mexican Pesos",
+    "date": "Tue Jun 07 2022 17:24:08 GMT-0500 (CDT)",
+    "day": "Tuesday",
+    "ref": "Sanburn razor"
+  },
+  "-N4-LriE3Cj3t3JxB18i": {
+    "amount": "129",
+    "currency": "Mexican Pesos",
+    "date": "Tue Jun 07 2022 17:24:08 GMT-0500 (CDT)",
+    "day": "Tuesday",
+    "ref": "T-shirt"
+  },
+  "-N4-LwwdrsrP8REwEOQy": {
+    "amount": "259",
+    "currency": "Mexican Pesos",
+    "date": "Tue Jun 07 2022 17:24:08 GMT-0500 (CDT)",
+    "day": "Tuesday",
+    "ref": "Jeans"
+  },
+  "-N4-M8On_Fdc5-EWk9_D": {
+    "amount": "0",
+    "currency": "Mexican Pesos",
+    "date": "Tue Jun 07 2022 17:24:08 GMT-0500 (CDT)",
+    "day": "Tuesday",
+    "ref": "Xbox controller "
+  },
+  "-N4-MCoq4v-CKHpIaqoE": {
+    "amount": "27",
+    "currency": "Mexican Pesos",
+    "date": "Tue Jun 07 2022 17:24:08 GMT-0500 (CDT)",
+    "day": "Tuesday",
+    "ref": "Starbucks "
+  },
+  "-N4-Mc5g3-zg_tpJ3TVa": {
+    "amount": "79",
+    "currency": "Mexican Pesos",
+    "date": "Tue Jun 07 2022 17:24:08 GMT-0500 (CDT)",
+    "day": "Tuesday",
+    "ref": "C&A socks"
+  },
+  "-N4-SzIcefOB9tWPwdV1": {
+    "amount": "70",
+    "currency": "Mexican Pesos",
+    "date": "Tue Jun 07 2022 17:56:17 GMT-0500 (CDT)",
+    "day": "Tuesday",
+    "ref": "Marble"
+  },
+  "-N40PbxALehjDcGSxwAZ": {
+    "amount": "30",
+    "currency": "Mexican Pesos",
+    "date": "Tue Jun 07 2022 22:12:01 GMT-0500 (CDT)",
+    "day": "Tuesday",
+    "ref": "Beer"
+  },
+  "-N44evoEcw9VKRiQVSn1": {
+    "amount": "57",
+    "currency": "Mexican Pesos",
+    "date": "Wed Jun 08 2022 18:34:33 GMT-0500 (CDT)",
+    "day": "Wednesday",
+    "ref": "Chocolate "
+  },
+  "-N44f1cdcNkhFXdZBkIK": {
+    "amount": "47",
+    "currency": "Mexican Pesos",
+    "date": "Wed Jun 08 2022 18:34:33 GMT-0500 (CDT)",
+    "day": "Wednesday",
+    "ref": "Redbull"
+  },
+  "-N49LSjbFqa3XSqf0VrG": {
+    "amount": "205",
+    "currency": "Mexican Pesos",
+    "date": "Thu Jun 09 2022 16:07:21 GMT-0500 (CDT)",
+    "day": "Thursday",
+    "ref": "Date night"
+  },
+  "-N49LimIKDdNK4SssuXS": {
+    "amount": "33",
+    "currency": "Mexican Pesos",
+    "date": "Thu Jun 09 2022 16:07:21 GMT-0500 (CDT)",
+    "day": "Thursday",
+    "ref": "Starbucks logistics "
+  },
+  "-N49Ltjs-xYkMvAunOR6": {
+    "amount": "100",
+    "currency": "Mexican Pesos",
+    "date": "Thu Jun 09 2022 16:07:21 GMT-0500 (CDT)",
+    "day": "Thursday",
+    "ref": "July Present "
+  },
+  "-N4DeYjcruf571__YkDG": {
+    "amount": "174",
+    "currency": "Mexican Pesos",
+    "date": "Fri Jun 10 2022 12:29:03 GMT-0500 (CDT)",
+    "day": "Friday",
+    "ref": "BBVA Exchange "
+  },
+  "-N4DegnbfZRYWkEOoA65": {
+    "amount": "4000",
+    "currency": "Mexican Pesos",
+    "date": "Fri Jun 10 2022 12:29:03 GMT-0500 (CDT)",
+    "day": "Friday",
+    "ref": "Cash exchange "
+  },
+  "-N4EF2VMgxTNf7XnmqsO": {
+    "amount": "36",
+    "currency": "Mexican Pesos",
+    "date": "Fri Jun 10 2022 15:12:08 GMT-0500 (CDT)",
+    "day": "Friday",
+    "ref": "Oaxacan Cheese"
+  },
+  "-N4EFcn7oZIgr-reuWed": {
+    "amount": "200",
+    "currency": "Mexican Pesos",
+    "date": "Fri Jun 10 2022 15:12:08 GMT-0500 (CDT)",
+    "day": "Friday",
+    "ref": "Paula outing"
+  }
+}

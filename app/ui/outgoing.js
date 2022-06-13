@@ -17,6 +17,8 @@ import date from "../../date";
 import config from "../../config";
 import kawa from "../image/kawa.jpg";
 import * as SecureStore from 'expo-secure-store';
+//import sportArr from "./sportList";
+import sportArr from './sportList.json';
 
 var curve = 0;
 var letter_of_employment;
@@ -52,7 +54,7 @@ var triangle5 = 0;
 var ryan;
 var LOOKERS_JAGUAR = new Date();
 var tally = 0;
-var curr_sign = "N";
+var curr_sign = "MXN";
 
 export default class Outbound extends Component {
   constructor(props) {
@@ -79,8 +81,20 @@ export default class Outbound extends Component {
     };
   }
   componentDidMount() {
-    this._listener();
+    //this._listener();
     this.getValueFor("Florida")
+    //this.getValueFor("Febreeze")
+    //console.log(sportArr)
+    this.jsonToArray(sportArr)
+    this.getListfor("Febreeze")
+
+
+   // this.getValueFor("sportGoods")
+
+   // to update database, check the head of firebase and cache
+   // Output cache list
+   // If cache is not empty, pull values.
+
     //payload.profile.hp();
 
     if(this.state.useEffectSwitch){
@@ -118,9 +132,31 @@ export default class Outbound extends Component {
     )
   }
 
+  async fetchValueForList(key){
+    let result = await SecureStore.getItemAsync(key)
+    if(result){
+      this.setState({
+        items: result
+      })
+    }
+  }
+
   async save(key, value) {
     // alert("Stored " + SecureStore.isAvailableAsync());
      await SecureStore.setItemAsync(key, value);
+   }
+
+   async getListfor(key) {
+     alert("get list")
+     let result = await SecureStore.getItemAsync(key)
+     if(result){
+      //  this.setState({
+      //    items: result
+      //  })
+      const fruits = result
+      console.log(fruits)
+       alert("result")
+     }
    }
    
    async getValueFor(key) {
@@ -251,6 +287,7 @@ export default class Outbound extends Component {
 
     const dollarConversion = this.state.amount / 18.3
     this.save("Florida", Math.floor(this.state.dollarCountDown - dollarConversion).toString())
+    this.save("Febreeze", this.state.items.toString())
 
     this.setState({
       dollarCountDown: Math.floor(this.state.dollarCountDown - dollarConversion)
@@ -281,6 +318,16 @@ export default class Outbound extends Component {
     //       console.log(child)
     //   })
     //   })
+  }
+
+  jsonToArray(j) {
+    
+
+   // console.log(Object.keys(j).map(function(_) { return j[_]; }))
+    this.setState({
+      items: Object.keys(j).map(function(_) { return j[_]; })
+    })
+
   }
 
   async _listener() {
