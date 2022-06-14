@@ -94,6 +94,7 @@ export default class Outbound extends Component {
    // to update database, check the head of firebase and cache
    // Output cache list
    // If cache is not empty, pull values.
+   // Update cache with new array using head and array.length
 
     //payload.profile.hp();
 
@@ -144,17 +145,19 @@ export default class Outbound extends Component {
   async save(key, value) {
     // alert("Stored " + SecureStore.isAvailableAsync());
      await SecureStore.setItemAsync(key, value);
+     console.log(value)
    }
 
    async getListfor(key) {
-     alert("get list")
+     //alert("get list")
      let result = await SecureStore.getItemAsync(key)
-     if(result){
-      //  this.setState({
-      //    items: result
-      //  })
-      const fruits = result
-      console.log(fruits)
+     
+      const fruits = JSON.parse(result)
+      // console.log(fruits)
+      if(result){
+        this.setState({
+          items: fruits
+        })
        alert("result")
      }
    }
@@ -182,7 +185,6 @@ export default class Outbound extends Component {
     if (x != 0) {
       var perHigh = x / curve;
       perHigh = perHigh * 100;
-      //console.log(perHigh);
       return perHigh;
     } else {
       return 0;
@@ -274,24 +276,27 @@ export default class Outbound extends Component {
     
 
     // console.log(savingFirstData); //value1
-    ryan = firebase.database().ref(`purchase/${this.props.samuelUser}`);
-    if (this.state.val != "" && this.state.amount != "") {
-      ryan.push({
-        ref: this.state.val,
-        amount: this.state.amount,
-        date: LOOKERS_JAGUAR.toString(),
-        day: date,
-        currency: "Mexican Pesos",
-      });
-    }
+    // ryan = firebase.database().ref(`purchase/${this.props.samuelUser}`);
+    // if (this.state.val != "" && this.state.amount != "") {
+    //   ryan.push({
+    //     ref: this.state.val,
+    //     amount: this.state.amount,
+    //     date: LOOKERS_JAGUAR.toString(),
+    //     day: date,
+    //     currency: "Mexican Pesos",
+    //   });
+    // }
 
     const dollarConversion = this.state.amount / 18.3
-    this.save("Florida", Math.floor(this.state.dollarCountDown - dollarConversion).toString())
-    this.save("Febreeze", this.state.items.toString())
-
     this.setState({
-      dollarCountDown: Math.floor(this.state.dollarCountDown - dollarConversion)
+      dollarCountDown: Math.floor(this.state.dollarCountDown - dollarConversion),
+      items: [...this.state.items, {ref: this.state.val, amount: this.state.amount, date: LOOKERS_JAGUAR.toString(), day: date, currency: "Mexican Pesos"}]
     })
+
+    this.save("Florida", Math.floor(this.state.dollarCountDown - dollarConversion).toString())
+    this.save("Febreeze", JSON.stringify(this.state.items))
+
+    
 
     
 
@@ -762,7 +767,7 @@ export default class Outbound extends Component {
       return (
         <View style={styles.container}>
           <ScrollView style={{}}>
-            {/* <TouchableOpacity
+            <TouchableOpacity
               onPress={() => this._rollDice()}
               style={{
                 height: 300,
@@ -772,7 +777,7 @@ export default class Outbound extends Component {
               }}
             >
               {this.dice()}
-            </TouchableOpacity> */}
+            </TouchableOpacity>
             <View
               style={{
                 marginTop: 20,
