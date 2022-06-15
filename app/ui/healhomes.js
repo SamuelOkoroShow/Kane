@@ -9,7 +9,7 @@ import {
 } from "react-native";
 
 import styled from "styled-components/native";
-import Outbound from "./outgoing";
+import Outbound from "./outdating";
 import { color } from "./shared/color";
 
 // XO_COAT_CHL_QE;

@@ -3,7 +3,7 @@ import React, {Component, useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Oshee33 from './app/ui/healhomes'
 //import Router from './app/ui/router'
-import GithubCigar from './app/ui/outgoing'
+import GithubCigar from './app/ui/outdating'
 import QB from './app/ui/qb'
 //import { AnimatedCircles } from './app/AnimatedCircles/AnimateGeo.component';
 
