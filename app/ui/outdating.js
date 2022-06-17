@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useRef } from "react";
 import {
   Animated,
   StyleSheet,
@@ -8,6 +8,7 @@ import {
   ScrollView,
   Text,
   View,
+  Easing,
   TouchableOpacity,
   TextInput,
 } from "react-native";
@@ -16,6 +17,7 @@ import ball from "../image/soft2.png";
 import date from "../../date";
 import config from "../../config";
 import kawa from "../image/kawa.jpg";
+import RotatingModal from './widgets/rotatingModal'
 import * as SecureStore from 'expo-secure-store';
 //import sportArr from "./sportList";
 import sportArr from './sportList.json';
@@ -56,6 +58,15 @@ var LOOKERS_JAGUAR = new Date();
 var tally = 0;
 var curr_sign = "MXN";
 
+
+// const animatedVal = React.useRef(new Animated.Value(0)).current;
+// const animation = (toValue) => Animated.timing(animatedVal, {
+//       toValue: toValue,
+//       duration: 200,
+//       useNativeDriver: false
+//     })
+
+
 export default class Outbound extends Component {
   constructor(props) {
     super(props);
@@ -73,6 +84,7 @@ export default class Outbound extends Component {
       triangle3: 0,
       triangle4: 0,
       triangle5: 0,
+      fadeAnim: new Animated.Value(0),
       // useEffectSwitch: false,
       items: [],
       triangles: [],
@@ -124,6 +136,10 @@ export default class Outbound extends Component {
     // });
   }
 
+  spin() {
+
+  }
+
   powerControl() {
     const dollarAllowance = 77.77
     this.setState(
@@ -132,6 +148,8 @@ export default class Outbound extends Component {
       }
     )
   }
+
+
 
   async fetchValueForList(key){
     let result = await SecureStore.getItemAsync(key)
@@ -158,7 +176,7 @@ export default class Outbound extends Component {
         this.setState({
           items: fruits
         })
-       alert("result")
+       //alert("result")
      }
    }
    
@@ -489,17 +507,17 @@ export default class Outbound extends Component {
           <Text style={{ fontSize: 7, fontWeight: "600", color: "#c6dec1" }}>
             {item.amount / 25} pounds
           </Text>
-          <Text
+          <Animated.Text
             style={{
               fontSize: 9,
               fontWeight: "600",
               color: "#c6dec1",
               marginTop: 30,
-              transform: [{ rotate: "-27deg" }],
+              transform: [{ rotate: "27deg"}],
             }}
           >
             {item.date}
-          </Text>
+          </Animated.Text>
           <View
             style={{
               width: "100%",
@@ -763,6 +781,7 @@ export default class Outbound extends Component {
   }
 
   render() {
+    return(<RotatingModal />)
     if (this.state.authenticated) {
       return (
         <View style={styles.container}>
@@ -936,6 +955,7 @@ export default class Outbound extends Component {
               <Text style={{ color: "#fff", fontSize: 9 }}>{date}</Text>
             </View>
           </TouchableOpacity>
+          <View style={{flex:1, backgroundColor:"#333"}}></View>
         </View>
       );
     } else {
