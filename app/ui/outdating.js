@@ -92,6 +92,30 @@ export default class Outbound extends Component {
       dollarCountDown: 60
     };
   }
+  state = {
+    fadeAnim: new Animated.Value(0)
+  };
+
+  rotateAR = () => {
+    // Will change fadeAnim value to 1 in 5 seconds
+    Animated.loop(Animated.timing(this.state.fadeAnim, {
+      toValue: 1,
+      duration: 2000,
+      useNativeDriver: true
+    })).start();
+  };
+// 
+//   fadeOut = () => {
+//     // Will change fadeAnim value to 0 in 3 seconds
+//     Animated.timing(this.state.fadeAnim, {
+//       toValue: "0deg",
+//       duration: 3000
+//     }).start();
+//   };
+
+
+
+
   componentDidMount() {
     //this._listener();
     this.getValueFor("Florida")
@@ -99,6 +123,9 @@ export default class Outbound extends Component {
     //console.log(sportArr)
     this.jsonToArray(sportArr)
     this.getListfor("Febreeze")
+    this.rotateAR()
+
+    setTimeout(this.fadeIn, 5000)
 
 
    // this.getValueFor("sportGoods")
@@ -425,7 +452,7 @@ export default class Outbound extends Component {
   _debitCard(item) {
     var hudson;
     hudson = item.ibrahim;
-    var glendale = "Grown so much!";
+    var glendale = "You've grown so much!";
     // Push to xpr
 
     week.push(item.date);
@@ -480,7 +507,18 @@ export default class Outbound extends Component {
     //console.log(week[counter - 1]);
     var y = counter % 5;
 
+    const bgInterpolate = this.state.fadeAnim.interpolate({
+      inputRange: [0, 3000],
+      outputRange: ["0deg", "360deg"],
+    });
+    const scrollStyle = {
+      transform: {
+        rotate: bgInterpolate
+      }
+    };
+
     return (
+
       <TouchableOpacity style={{ flex: 1, flexDirection: "row" }}>
         <View
           style={{
@@ -508,12 +546,21 @@ export default class Outbound extends Component {
             {item.amount / 25} pounds
           </Text>
           <Animated.Text
+          numberOfLines = {1}
             style={{
               fontSize: 9,
               fontWeight: "600",
               color: "#c6dec1",
+              width: 60,
               marginTop: 30,
-              transform: [{ rotate: "27deg"}],
+              transform: [
+              { 
+                rotate: this.state.fadeAnim.interpolate({
+          
+        inputRange:[0,1],
+        outputRange:["0deg", "360deg"]
+      })
+    }],
             }}
           >
             {item.date}
@@ -781,7 +828,7 @@ export default class Outbound extends Component {
   }
 
   render() {
-    return(<RotatingModal />)
+    //return(<RotatingModal />)
     if (this.state.authenticated) {
       return (
         <View style={styles.container}>
