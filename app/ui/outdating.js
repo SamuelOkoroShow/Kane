@@ -17,7 +17,9 @@ import ball from "../image/soft2.png";
 import date from "../../date";
 import config from "../../config";
 import kawa from "../image/kawa.jpg";
+import banana from "../image/banana.png";
 import RotatingModal from './widgets/rotatingModal'
+import PresentingIncome from './widgets/presentingIncome'
 import * as SecureStore from 'expo-secure-store';
 //import sportArr from "./sportList";
 import sportArr from './sportList.json';
@@ -79,12 +81,12 @@ export default class Outbound extends Component {
       dice: 3,
       ren: "amount",
       BUDGET_BALANCE: 0,
+      fadeAnim: new Animated.Value(0),
       triangle1: 0,
       triangle2: 0,
       triangle3: 0,
       triangle4: 0,
       triangle5: 0,
-      fadeAnim: new Animated.Value(0),
       // useEffectSwitch: false,
       items: [],
       triangles: [],
@@ -545,26 +547,26 @@ export default class Outbound extends Component {
           <Text style={{ fontSize: 7, fontWeight: "600", color: "#c6dec1" }}>
             {item.amount / 25} pounds
           </Text>
-          <Animated.Text
+          <Text style={{ fontSize: 7, fontWeight: "600", color: "#c6dec1" }}>
+            {item.amount * .2} bags of water
+          </Text>
+          <Animated.Image
           numberOfLines = {1}
             style={{
-              fontSize: 9,
-              fontWeight: "600",
-              color: "#c6dec1",
-              width: 60,
-              marginTop: 30,
+              height: 20,
+              width: 40,
               transform: [
               { 
                 rotate: this.state.fadeAnim.interpolate({
           
         inputRange:[0,1],
-        outputRange:["0deg", "360deg"]
+        outputRange:["360deg", "0deg"]
       })
     }],
             }}
-          >
-            {item.date}
-          </Animated.Text>
+source = {banana}
+resizeMode ="contain"
+          />
           <View
             style={{
               width: "100%",
@@ -828,22 +830,24 @@ export default class Outbound extends Component {
   }
 
   render() {
-    //return(<RotatingModal />)
+    // return(<PresentingIncome />)
     if (this.state.authenticated) {
       return (
         <View style={styles.container}>
           <ScrollView style={{}}>
-            <TouchableOpacity
-              onPress={() => this._rollDice()}
-              style={{
-                height: 300,
-                justifyContent: "center",
-                alignItems: "center",
-                width: "100%",
-              }}
-            >
-              {this.dice()}
-            </TouchableOpacity>
+          {/*   <TouchableOpacity */}
+          {/*     onPress={() => this._rollDice()} */}
+          {/*     style={{ */}
+          {/*       height: 300, */}
+          {/*       justifyContent: "center", */}
+          {/*       alignItems: "center", */}
+          {/*       width: "100%", */}
+          {/*     }} */}
+          {/*   > */}
+          {/*     { */}
+          {/*     //this.dice() */}
+          {/* } */}
+          {/*   </TouchableOpacity> */}
             <View
               style={{
                 marginTop: 20,

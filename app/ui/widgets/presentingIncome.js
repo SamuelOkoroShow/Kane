@@ -9,11 +9,14 @@ const StyledView = styled.View`
   justify-content: center;
   align-items:center;
 `
-const Modal = styled.View`
+const Ezia = styled.View`
   width: 200px;
   height: 100px;
   border-radius: 5px;
   background-color: tomato;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
 `
 
 const ModalH1 = styled.Text`
@@ -22,15 +25,25 @@ const ModalH1 = styled.Text`
   font-size: 26;
 `
 
+const IncomeModalText = styled.Text`
+  color: white;
+  font-weight: Platform.OS === "android"? bold:  900;
+  font-size: 26;
+`
+
+const IncomeYearText = styled.Text`
+  color: white;
+  font-weight: Platform.OS === "android"? bold:  900;
+  font-size: 14;
+`
+
 interface checksProps {
   amount: number
 
 }
 interface incomeProps {
-  {
     year: number,
     checks: checksProps[]
-  }
 }
 const income = [
   {
@@ -45,7 +58,8 @@ const income = [
     {
       "amount" : 4560.10
     },
-    ]}, {
+    ]
+  }, {
     year: 2022,
     checks : [
     {
@@ -61,11 +75,12 @@ const income = [
 ]
 
 export default function rotatingModal() {
-  const   
+
 
   return <StyledView>
-    <Modal>
-      
-    </Modal>
+    {income[0].checks.map((next) => (<Ezia>
+<IncomeModalText>${Math.ceil(next.amount)}</IncomeModalText>
+<IncomeYearText>2021</IncomeYearText>
+    </Ezia>))}
   </StyledView>;
 }

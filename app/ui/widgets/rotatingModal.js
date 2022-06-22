@@ -22,7 +22,22 @@ const ModalH1 = styled.Text`
   font-size: 26;
 `
 
+const income2022 = {
+  "kangaroo": {
+    amount: 4378.57
+  },
+  "m&ms": {
+    amount: 4317.93
+  },
+  "anti" : {
+    "amount" : 4560.10
+  },
+  
+}
+
 export default function rotatingModal() {
+ 
+
   return <StyledView>
     <Modal>
       

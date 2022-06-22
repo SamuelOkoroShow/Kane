@@ -6,6 +6,7 @@ import Oshee33 from './app/ui/healhomes'
 import GithubCigar from './app/ui/outdating'
 import QB from './app/ui/qb'
 //import { AnimatedCircles } from './app/AnimatedCircles/AnimateGeo.component';
+import * as Notifications from 'expo-notifications';
 
 
 const navigatieFAR = () => {
