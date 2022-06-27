@@ -1,4 +1,4 @@
-import React, { Component, useRef } from "react";
+import React, { Component, useState, useRef } from "react";
 import {
   Animated,
   StyleSheet,
@@ -23,18 +23,17 @@ import PresentingIncome from './widgets/presentingIncome'
 import * as SecureStore from 'expo-secure-store';
 //import sportArr from "./sportList";
 import sportArr from './sportList.json';
+import {veryBerry} from "./shared/color"
 
 var curve = 0;
 var letter_of_employment;
 let counter = 0;
 var consolid = "award";
-var redTotal = false;
-var dayIncrementor = [];
 var tallyArr = [];
 let stars;
 var xpr = [];
 var week = [];
-let cape_suicide = "Disease";
+let cape_suicide;
 var elevate;
 var excite;
 var ux;
@@ -81,7 +80,10 @@ export default class Outbound extends Component {
       dice: 3,
       ren: "amount",
       BUDGET_BALANCE: 0,
-      fadeAnim: new Animated.Value(0),
+      arcSpinner: new Animated.Value(0),
+      iRailController: new Animated.Value(0),
+      iRailController2: new Animated.Value(0),
+      iRailController3: new Animated.Value(0),
       triangle1: 0,
       triangle2: 0,
       triangle3: 0,
@@ -94,22 +96,38 @@ export default class Outbound extends Component {
       dollarCountDown: 60
     };
   }
-  state = {
-    fadeAnim: new Animated.Value(0)
-  };
-
-  rotateAR = () => {
-    // Will change fadeAnim value to 1 in 5 seconds
-    Animated.loop(Animated.timing(this.state.fadeAnim, {
+  rotateSCAR = () => {
+    // Will change arcSpinner value to 1 in 5 seconds
+    Animated.loop(Animated.timing(this.state.arcSpinner, {
       toValue: 1,
       duration: 2000,
       useNativeDriver: true
     })).start();
   };
+  iRailSpring = () => {
+    // Will change arcSpinner value to 1 in 5 seconds
+    Animated.timing(this.state.iRailController, {
+      toValue: 1,
+      duration: 1400,
+      useNativeDriver: true
+    }).start();
+
+    setTimeout(() => Animated.timing(this.state.iRailController2, {
+      toValue: 1,
+      duration: 1400,
+      useNativeDriver: true
+    }).start(), 1000)
+    
+    setTimeout(() => Animated.timing(this.state.iRailController3, {
+      toValue: 1,
+      duration: 1400,
+      useNativeDriver: true
+    }).start(), 1300)
+  };
 // 
 //   fadeOut = () => {
-//     // Will change fadeAnim value to 0 in 3 seconds
-//     Animated.timing(this.state.fadeAnim, {
+//     // Will change arcSpinner value to 0 in 3 seconds
+//     Animated.timing(this.state.arcSpinner, {
 //       toValue: "0deg",
 //       duration: 3000
 //     }).start();
@@ -125,9 +143,9 @@ export default class Outbound extends Component {
     //console.log(sportArr)
     this.jsonToArray(sportArr)
     this.getListfor("Febreeze")
-    this.rotateAR()
+    this.rotateSCAR()
+    this.iRailSpring()
 
-    setTimeout(this.fadeIn, 5000)
 
 
    // this.getValueFor("sportGoods")
@@ -509,15 +527,11 @@ export default class Outbound extends Component {
     //console.log(week[counter - 1]);
     var y = counter % 5;
 
-    const bgInterpolate = this.state.fadeAnim.interpolate({
+    const iRailController = this.state.iRailController.interpolate({
       inputRange: [0, 3000],
-      outputRange: ["0deg", "360deg"],
+      outputRange: [0, 360],
     });
-    const scrollStyle = {
-      transform: {
-        rotate: bgInterpolate
-      }
-    };
+
 
     return (
 
@@ -548,19 +562,20 @@ export default class Outbound extends Component {
             {item.amount / 25} pounds
           </Text>
           <Text style={{ fontSize: 7, fontWeight: "600", color: "#c6dec1" }}>
-            {item.amount * .2} bags of water
+            {Math.floor(item.amount) * .2} bags of water
           </Text>
           <Animated.Image
           numberOfLines = {1}
             style={{
               height: 20,
               width: 40,
+              marginTop: 30,
               transform: [
               { 
-                rotate: this.state.fadeAnim.interpolate({
+                rotate: this.state.arcSpinner.interpolate({
           
         inputRange:[0,1],
-        outputRange:["360deg", "0deg"]
+        outputRange:["0deg", "360deg"]
       })
     }],
             }}
@@ -830,10 +845,11 @@ resizeMode ="contain"
   }
 
   render() {
-    // return(<PresentingIncome />)
+     // return(<PresentingIncome />)
     if (this.state.authenticated) {
       return (
         <View style={styles.container}>
+        <Animated.View style={{width: 60, height: 60, borderRadius:30}} />
           <ScrollView style={{}}>
           {/*   <TouchableOpacity */}
           {/*     onPress={() => this._rollDice()} */}
@@ -1007,6 +1023,33 @@ resizeMode ="contain"
             </View>
           </TouchableOpacity>
           <View style={{flex:1, backgroundColor:"#333"}}></View>
+          <Animated.View style={{backgroundColor:'rgba(0,0,0,0)', position:'absolute', right:-120, bottom:185, transform: [{
+            translateX: this.state.iRailController.interpolate({
+          
+              inputRange:[0,1],
+              outputRange:[0, -130]
+            })
+          }]}}>
+          <TouchableOpacity style={{width:50, height:50, borderRadius:25, backgroundColor: veryBerry.RadicalRed, borderWidth:1 }} />
+          </Animated.View>
+          <Animated.View style={{backgroundColor:'rgba(0,0,0,0)', position:'absolute', right:-120, bottom:130, transform: [{
+            translateX: this.state.iRailController2.interpolate({
+          
+              inputRange:[0,1],
+              outputRange:[0, -130]
+            })
+          }]}}>
+          <TouchableOpacity style={{width:50, height:50, borderRadius:25, backgroundColor: veryBerry.DukeBlue, borderWidth:1 }} />
+          </Animated.View>
+          <Animated.View style={{backgroundColor:'rgba(0,0,0,0)', position:'absolute', right:-120, bottom:70, transform: [{
+            translateX: this.state.iRailController3.interpolate({
+          
+              inputRange:[0,1],
+              outputRange:[0, -160]
+            })
+          }]}}>
+          <TouchableOpacity style={{width:50, height:50, borderRadius:25, backgroundColor: veryBerry.JazzberryJam, borderWidth:1 }} />
+          </Animated.View>
         </View>
       );
     } else {
