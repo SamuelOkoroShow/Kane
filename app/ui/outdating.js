@@ -25,6 +25,7 @@ import * as SecureStore from 'expo-secure-store';
 //import sportArr from "./sportList";
 import sportArr from './sportList.json';
 import {veryBerry} from "./shared/color"
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 var curve = 0;
 var letter_of_employment;
@@ -41,11 +42,11 @@ var ux;
 var element;
 var electric;
 var eq;
-var endorphins;
-var everyday;
+var endorphins = 76;
+var everyday = 1400;
 var envy;
-var enlight;
-var empower;
+var enlight = 1300;
+var empower = 1000;
 
 firebase.initializeApp(config);
 
@@ -112,30 +113,42 @@ export default class Outbound extends Component {
     // Will change arcSpinner value to 1 in 5 seconds
     Animated.loop(Animated.timing(this.state.arcSpinner, {
       toValue: 1,
-      duration: 2000,
+      duration: 1700,
       useNativeDriver: true
     })).start();
   };
   iRailSpring = () => {
     // Will change arcSpinner value to 1 in 5 seconds
-    Animated.timing(this.state.iRailController, {
+    setTimeout(() => Animated.timing(this.state.iRailController, {
       toValue: 1,
-      duration: 1400,
+      duration: everyday,
       useNativeDriver: true
-    }).start();
+    }).start(), envy);
 
     setTimeout(() => Animated.timing(this.state.iRailController2, {
       toValue: 1,
-      duration: 1400,
+      duration: everyday,
       useNativeDriver: true
-    }).start(), 1000)
+    }).start(), empower)
     
     setTimeout(() => Animated.timing(this.state.iRailController3, {
       toValue: 1,
-      duration: 1400,
+      duration: everyday,
       useNativeDriver: true
-    }).start(), 1300)
+    }).start(), enlight)
   };
+
+  iConserverController = () => {
+    const y = empower;
+    enlight = empower;
+    empower = y;
+  }
+
+  iConserverController2 = () => {
+    envy = 1400;
+    enlight = 800;
+    empower = 0;
+  }
 // 
 //   fadeOut = () => {
 //     // Will change arcSpinner value to 0 in 3 seconds
@@ -156,7 +169,14 @@ export default class Outbound extends Component {
     this.jsonToArray(sportArr)
     this.getListfor("Febreeze")
     this.rotateSCAR()
+    var R = 10
+    //if(R > Math.random() * (20 - 0) + 0){ this.iConserverController();}
+    //if(R > Math.random() * (30 - 0) + 0){ this.iConserverController2();}
+    // this.iConserverController()
+    this.iConserverController2();
+
     this.iRailSpring()
+
 
 
 
@@ -571,10 +591,10 @@ export default class Outbound extends Component {
             naira
           </Text> */}
           <Text style={{ fontSize: 7, fontWeight: "600", color: "#c6dec1" }}>
-            {item.amount / 25} pounds
+            {Math.floor(item.amount / 15.5)} CAD
           </Text>
           <Text style={{ fontSize: 7, fontWeight: "600", color: "#c6dec1" }}>
-            {Math.floor(item.amount) * .2} bags of water
+            {Math.floor(item.amount * .2)} Glamorous
           </Text>
           <Animated.Image
           numberOfLines = {1}
@@ -1034,30 +1054,53 @@ resizeMode ="contain"
           </TouchableOpacity>
           <View style={{flex:1, backgroundColor:"#333"}}></View>
           <Animated.View style={{backgroundColor:'rgba(0,0,0,0)', position:'absolute', right:-120, bottom:295, transform: [{
+            rotate: this.state.arcSpinner.interpolate({       
+        inputRange:[0,1],
+        outputRange:["360deg", "0deg"]
+      })
+          },{
             translateX: this.state.iRailController.interpolate({
           
               inputRange:[0,1],
               outputRange:[0, -130]
             })
           }]}}>
-          <TouchableOpacity style={{width:90, height:90, borderRadius:45, backgroundColor: veryBerry.RadicalRed, borderWidth:1 }} />
+          <TouchableOpacity style={{width:endorphins, height:endorphins, borderRadius:endorphins/2, backgroundColor: veryBerry.RadicalRed, borderWidth:1, justifyContent:'center', alignItems:'center' }} >
+<Ionicons name="md-battery-charging-outline" size={32} color="white" />
+          </TouchableOpacity>
           </Animated.View>
           <Animated.View style={{backgroundColor:'rgba(0,0,0,0)', position:'absolute', right:-120, bottom:170, transform: [{
+            rotate: this.state.arcSpinner.interpolate({       
+        inputRange:[0,1],
+        outputRange:["720deg", "0deg"]
+      })
+          },{
             translateX: this.state.iRailController2.interpolate({
           
               inputRange:[0,1],
               outputRange:[0, -130]
             })
           }]}}>
-          <TouchableOpacity style={{width:90, height:90, borderRadius:45, backgroundColor: veryBerry.DukeBlue, borderWidth:1 }} />
+          <TouchableOpacity style={{width:endorphins, height:endorphins, borderRadius:endorphins/2, backgroundColor: veryBerry.DukeBlue, borderWidth:1, justifyContent:'center', alignItems:'center' }} >
+           <Ionicons name="md-bug-outline" size={32} color="white" />
+           
+          </TouchableOpacity>
           </Animated.View>
           <Animated.View style={{backgroundColor:'rgba(0,0,0,0)', position:'absolute', right:-120, bottom:70, transform: [{
+            rotate: this.state.arcSpinner.interpolate({       
+        inputRange:[0,1],
+        outputRange:["360deg", "0deg"]
+      })
+          },{
             translateX: this.state.iRailController3.interpolate({     
               inputRange:[0,1],
               outputRange:[0, -160]
             })
           }]}}>
-          <TouchableOpacity style={{width:90, height:90, borderRadius:45, backgroundColor: veryBerry.JazzberryJam, borderWidth:1 }} />
+          <TouchableOpacity style={{width:endorphins, height:endorphins, borderRadius:endorphins/2, justifyContent:'center', alignItems:'center', backgroundColor: veryBerry.JazzberryJam, borderWidth:1 }} >
+ <Ionicons name="md-baseball-outline" size={32} color="white" />
+
+          </TouchableOpacity>
           </Animated.View>
         </View>
       );
