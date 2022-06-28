@@ -18,6 +18,7 @@ import date from "../../date";
 import config from "../../config";
 import kawa from "../image/kawa.jpg";
 import banana from "../image/banana.png";
+import star from "../image/star.png";
 import RotatingModal from './widgets/rotatingModal'
 import PresentingIncome from './widgets/presentingIncome'
 import * as SecureStore from 'expo-secure-store';
@@ -84,6 +85,13 @@ export default class Outbound extends Component {
       iRailController: new Animated.Value(0),
       iRailController2: new Animated.Value(0),
       iRailController3: new Animated.Value(0),
+      iRailController4: new Animated.Value(0),
+      iSpeedController: new Animated.Value(0),
+      iSpeedController2: new Animated.Value(0),
+      iSpeedController3: new Animated.Value(0),
+      iSpeedController4: new Animated.Value(0),
+      iReducerController: new Animated.Value(0),
+      iReducerController2: new Animated.Value(0),
       triangle1: 0,
       triangle2: 0,
       triangle3: 0,
@@ -95,6 +103,10 @@ export default class Outbound extends Component {
       authenticated: true,
       dollarCountDown: 60
     };
+  }
+
+  iEEspeed = () => {
+
   }
   rotateSCAR = () => {
     // Will change arcSpinner value to 1 in 5 seconds
@@ -572,14 +584,13 @@ export default class Outbound extends Component {
               marginTop: 30,
               transform: [
               { 
-                rotate: this.state.arcSpinner.interpolate({
-          
+                rotate: this.state.arcSpinner.interpolate({       
         inputRange:[0,1],
-        outputRange:["0deg", "360deg"]
+        outputRange:["720deg", "0deg"]
       })
     }],
             }}
-source = {banana}
+source = {star}
 resizeMode ="contain"
           />
           <View
@@ -849,7 +860,6 @@ resizeMode ="contain"
     if (this.state.authenticated) {
       return (
         <View style={styles.container}>
-        <Animated.View style={{width: 60, height: 60, borderRadius:30}} />
           <ScrollView style={{}}>
           {/*   <TouchableOpacity */}
           {/*     onPress={() => this._rollDice()} */}
@@ -1023,32 +1033,31 @@ resizeMode ="contain"
             </View>
           </TouchableOpacity>
           <View style={{flex:1, backgroundColor:"#333"}}></View>
-          <Animated.View style={{backgroundColor:'rgba(0,0,0,0)', position:'absolute', right:-120, bottom:185, transform: [{
+          <Animated.View style={{backgroundColor:'rgba(0,0,0,0)', position:'absolute', right:-120, bottom:295, transform: [{
             translateX: this.state.iRailController.interpolate({
           
               inputRange:[0,1],
               outputRange:[0, -130]
             })
           }]}}>
-          <TouchableOpacity style={{width:50, height:50, borderRadius:25, backgroundColor: veryBerry.RadicalRed, borderWidth:1 }} />
+          <TouchableOpacity style={{width:90, height:90, borderRadius:45, backgroundColor: veryBerry.RadicalRed, borderWidth:1 }} />
           </Animated.View>
-          <Animated.View style={{backgroundColor:'rgba(0,0,0,0)', position:'absolute', right:-120, bottom:130, transform: [{
+          <Animated.View style={{backgroundColor:'rgba(0,0,0,0)', position:'absolute', right:-120, bottom:170, transform: [{
             translateX: this.state.iRailController2.interpolate({
           
               inputRange:[0,1],
               outputRange:[0, -130]
             })
           }]}}>
-          <TouchableOpacity style={{width:50, height:50, borderRadius:25, backgroundColor: veryBerry.DukeBlue, borderWidth:1 }} />
+          <TouchableOpacity style={{width:90, height:90, borderRadius:45, backgroundColor: veryBerry.DukeBlue, borderWidth:1 }} />
           </Animated.View>
           <Animated.View style={{backgroundColor:'rgba(0,0,0,0)', position:'absolute', right:-120, bottom:70, transform: [{
-            translateX: this.state.iRailController3.interpolate({
-          
+            translateX: this.state.iRailController3.interpolate({     
               inputRange:[0,1],
               outputRange:[0, -160]
             })
           }]}}>
-          <TouchableOpacity style={{width:50, height:50, borderRadius:25, backgroundColor: veryBerry.JazzberryJam, borderWidth:1 }} />
+          <TouchableOpacity style={{width:90, height:90, borderRadius:45, backgroundColor: veryBerry.JazzberryJam, borderWidth:1 }} />
           </Animated.View>
         </View>
       );
