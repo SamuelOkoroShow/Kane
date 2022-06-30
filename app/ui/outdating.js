@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState, useRef } from "react";
 import {
   Animated,
   StyleSheet,
@@ -8,6 +8,7 @@ import {
   ScrollView,
   Text,
   View,
+  Easing,
   TouchableOpacity,
   TextInput,
 } from "react-native";
@@ -16,30 +17,41 @@ import ball from "../image/soft2.png";
 import date from "../../date";
 import config from "../../config";
 import kawa from "../image/kawa.jpg";
+import banana from "../image/banana.png";
+import star from "../image/star.png";
+import RotatingModal from './widgets/rotatingModal'
+import PresentingIncome from './widgets/presentingIncome'
+import batman from "../image/batman.png";
+import glenRoss from "../image/glenfiddich.png";
+
 import * as SecureStore from 'expo-secure-store';
+//import sportArr from "./sportList";
+import sportArr from './sportList.json';
+import {veryBerry} from "./shared/color"
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 var curve = 0;
 var letter_of_employment;
 let counter = 0;
 var consolid = "award";
-var redTotal = false;
-var dayIncrementor = [];
 var tallyArr = [];
 let stars;
 var xpr = [];
 var week = [];
-let cape_suicide = "Disease";
+let cape_suicide;
 var elevate;
 var excite;
 var ux;
+var duke;
+var essentials;
 var element;
 var electric;
 var eq;
-var endorphins;
-var everyday;
+var endorphins = 76;
+var everyday = 1400;
 var envy;
-var enlight;
-var empower;
+var enlight = 1300;
+var empower = 1000;
 
 firebase.initializeApp(config);
 
@@ -52,7 +64,16 @@ var triangle5 = 0;
 var ryan;
 var LOOKERS_JAGUAR = new Date();
 var tally = 0;
-var curr_sign = "N";
+var curr_sign = "MXN";
+
+
+// const animatedVal = React.useRef(new Animated.Value(0)).current;
+// const animation = (toValue) => Animated.timing(animatedVal, {
+//       toValue: toValue,
+//       duration: 200,
+//       useNativeDriver: false
+//     })
+
 
 export default class Outbound extends Component {
   constructor(props) {
@@ -66,21 +87,124 @@ export default class Outbound extends Component {
       dice: 3,
       ren: "amount",
       BUDGET_BALANCE: 0,
+      arcSpinner: new Animated.Value(0),
+      iRailController: new Animated.Value(0),
+      iRailController2: new Animated.Value(0),
+      iRailController3: new Animated.Value(0),
+      iRailController4: new Animated.Value(0),
+      iSpeedController: new Animated.Value(0),
+      iSpeedController2: new Animated.Value(0),
+      iSpeedController3: new Animated.Value(0),
+      iSpeedController4: new Animated.Value(0),
+      iReducerController: new Animated.Value(0),
+      iReducerController2: new Animated.Value(0),
+      iZapatosController: new Animated.Value(0),
       triangle1: 0,
       triangle2: 0,
       triangle3: 0,
       triangle4: 0,
       triangle5: 0,
       // useEffectSwitch: false,
-      items: [],
+      itemsController: [],
       triangles: [],
       authenticated: true,
       dollarCountDown: 60
     };
   }
+
+
+
+  iEEspeed = () => {
+
+  }
+  rotateSCAR = () => {
+    // Will change arcSpinner value to 1 in 5 seconds
+    Animated.loop(Animated.timing(this.state.arcSpinner, {
+      toValue: 1,
+      duration: 1700,
+      useNativeDriver: true
+    })).start();
+  };
+  iRailSpring = () => {
+    // Will change arcSpinner value to 1 in 5 seconds
+    setTimeout(() => Animated.timing(this.state.iRailController, {
+      toValue: 1,
+      duration: everyday,
+      useNativeDriver: true
+    }).start(), envy);
+
+    setTimeout(() => Animated.timing(this.state.iRailController2, {
+      toValue: 1,
+      duration: everyday,
+      useNativeDriver: true
+    }).start(), empower)
+    
+    setTimeout(() => Animated.timing(this.state.iRailController3, {
+      toValue: 1,
+      duration: everyday,
+      useNativeDriver: true
+    }).start(), enlight)
+  };
+
+    resetiRailsController() {
+    this.setState({
+      iRailController: new Animated.Value(0),
+      iRailController2: new Animated.Value(0),
+      iRailController3: new Animated.Value(0),
+      iRailController4: new Animated.Value(0),
+    })
+    this.iRailSpring()
+  }
+
+  iConserverController = () => {
+    const y = empower;
+    enlight = empower;
+    empower = y;
+  }
+
+  iConserverController2 = () => {
+    envy = 1400;
+    enlight = 800;
+    empower = 0;
+  }
+// 
+//   fadeOut = () => {
+//     // Will change arcSpinner value to 0 in 3 seconds
+//     Animated.timing(this.state.arcSpinner, {
+//       toValue: "0deg",
+//       duration: 3000
+//     }).start();
+//   };
+
+
+
+
   componentDidMount() {
-    this._listener();
+    //this._listener();
     this.getValueFor("Florida")
+    //this.getValueFor("Febreeze")
+    //console.log(sportArr)
+    this.cToArray(sportArr)
+    this.getListfor("Febreeze")
+    this.rotateSCAR()
+    var R = 10
+    //if(R > Math.random() * (20 - 0) + 0){ this.iConserverController();}
+    //if(R > Math.random() * (30 - 0) + 0){ this.iConserverController2();}
+    // this.iConserverController()
+    this.iConserverController2();
+
+    this.iRailSpring()
+
+
+
+
+   // this.getValueFor("sportGoods")
+
+   // to update database, check the head of firebase and cache
+   // Output cache list
+   // If cache is not empty, pull values.
+   // Update cache with new array using head and array.length
+
     //payload.profile.hp();
 
     if(this.state.useEffectSwitch){
@@ -109,6 +233,10 @@ export default class Outbound extends Component {
     // });
   }
 
+  spin() {
+
+  }
+
   powerControl() {
     const dollarAllowance = 77.77
     this.setState(
@@ -118,9 +246,35 @@ export default class Outbound extends Component {
     )
   }
 
+
+
+  async fetchValueForList(key){
+    let result = await SecureStore.getItemAsync(key)
+    if(result){
+      this.setState({
+        itemsController: result
+      })
+    }
+  }
+
   async save(key, value) {
     // alert("Stored " + SecureStore.isAvailableAsync());
      await SecureStore.setItemAsync(key, value);
+     console.log(value)
+   }
+
+   async getListfor(key) {
+     //alert("get list")
+     let result = await SecureStore.getItemAsync(key)
+     
+      const fruits = JSON.parse(result)
+      // console.log(fruits)
+      if(result){
+        this.setState({
+          itemsController: fruits
+        })
+       //alert("result")
+     }
    }
    
    async getValueFor(key) {
@@ -146,7 +300,6 @@ export default class Outbound extends Component {
     if (x != 0) {
       var perHigh = x / curve;
       perHigh = perHigh * 100;
-      //console.log(perHigh);
       return perHigh;
     } else {
       return 0;
@@ -215,10 +368,10 @@ export default class Outbound extends Component {
   }
 
   logWires() {
-    //console.log(this.state.items)
+    //console.log(this.state.itemsController)
     var total = 0;
-    for (var i = 0; i < this.state.items.length; i++) {
-      total = parseInt(this.state.items[i].amount) + total;
+    for (var i = 0; i < this.state.itemsController.length; i++) {
+      total = parseInt(this.state.itemsController[i].amount) + total;
     }
   }
 
@@ -238,23 +391,27 @@ export default class Outbound extends Component {
     
 
     // console.log(savingFirstData); //value1
-    ryan = firebase.database().ref(`purchase/${this.props.samuelUser}`);
-    if (this.state.val != "" && this.state.amount != "") {
-      ryan.push({
-        ref: this.state.val,
-        amount: this.state.amount,
-        date: LOOKERS_JAGUAR.toString(),
-        day: date,
-        currency: "Mexican Pesos",
-      });
-    }
+    // ryan = firebase.database().ref(`purchase/${this.props.samuelUser}`);
+    // if (this.state.val != "" && this.state.amount != "") {
+    //   ryan.push({
+    //     ref: this.state.val,
+    //     amount: this.state.amount,
+    //     date: LOOKERS_JAGUAR.toString(),
+    //     day: date,
+    //     currency: "Mexican Pesos",
+    //   });
+    // }
 
     const dollarConversion = this.state.amount / 18.3
-    this.save("Florida", Math.floor(this.state.dollarCountDown - dollarConversion).toString())
-
     this.setState({
-      dollarCountDown: Math.floor(this.state.dollarCountDown - dollarConversion)
+      dollarCountDown: Math.floor(this.state.dollarCountDown - dollarConversion),
+      itemsController: [...this.state.itemsController, {ref: this.state.val, amount: this.state.amount, date: LOOKERS_JAGUAR.toString(), day: date, currency: "Mexican Pesos"}]
     })
+
+    this.save("Florida", Math.floor(this.state.dollarCountDown - dollarConversion).toString())
+    this.save("Febreeze", JSON.stringify(this.state.itemsController))
+
+    
 
     
 
@@ -283,6 +440,16 @@ export default class Outbound extends Component {
     //   })
   }
 
+  cToArray(j) {
+    
+
+   // console.log(Object.keys(j).map(function(_) { return j[_]; }))
+    this.setState({
+      itemsController: Object.keys(j).map(function(_) { return j[_]; })
+    })
+
+  }
+
   async _listener() {
     tally = 0;
     var valmet;
@@ -301,7 +468,7 @@ export default class Outbound extends Component {
       });
       //console.log(items)
       this.setState({
-        items: items,
+        itemsController: items,
       });
       this.logWires();
     });
@@ -355,7 +522,7 @@ export default class Outbound extends Component {
   _debitCard(item) {
     var hudson;
     hudson = item.ibrahim;
-    var glendale = "Grown so much!";
+    var glendale = "You've grown so much!";
     // Push to xpr
 
     week.push(item.date);
@@ -410,7 +577,14 @@ export default class Outbound extends Component {
     //console.log(week[counter - 1]);
     var y = counter % 5;
 
+    const iRailController = this.state.iRailController.interpolate({
+      inputRange: [0, 3000],
+      outputRange: [0, 360],
+    });
+
+
     return (
+
       <TouchableOpacity style={{ flex: 1, flexDirection: "row" }}>
         <View
           style={{
@@ -435,19 +609,28 @@ export default class Outbound extends Component {
             naira
           </Text> */}
           <Text style={{ fontSize: 7, fontWeight: "600", color: "#c6dec1" }}>
-            {item.amount / 25} pounds
+            {Math.floor(item.amount / 15.5)} CAD
           </Text>
-          <Text
+          <Text style={{ fontSize: 7, fontWeight: "600", color: "#c6dec1" }}>
+            {Math.floor(item.amount * .2)} Glamorous
+          </Text>
+          <Animated.Image
+          numberOfLines = {1}
             style={{
-              fontSize: 9,
-              fontWeight: "600",
-              color: "#c6dec1",
-              marginTop: 30,
-              transform: [{ rotate: "-27deg" }],
+              height: 40,
+              width: 50,
+              marginTop: 10,
+              transform: [
+              { 
+                rotate: this.state.arcSpinner.interpolate({       
+        inputRange:[0,1],
+        outputRange:["720deg", "0deg"]
+      })
+    }],
             }}
-          >
-            {item.date}
-          </Text>
+source = {glenRoss}
+resizeMode ="contain"
+          />
           <View
             style={{
               width: "100%",
@@ -475,257 +658,31 @@ export default class Outbound extends Component {
     );
 
     this.setState({
-      items: this.state.items,
+      itemsController: this.state.itemsController,
     });
   }
 
-  dice() {
-    switch (this.state.dice) {
-      case 1:
-        return (
-          <View style={{ justifyContent: "center", alignItems: "center" }}>
-            <Image
-              source={ball}
-              resizeMode="contain"
-              style={{ width: 40, height: 40 }}
-            />
-          </View>
-        );
-        break;
-      case 2:
-        return (
-          <View
-            style={{
-              justifyContent: "center",
-              alignItems: "center",
-              flexDirection: "row",
-            }}
-          >
-            <View style={{}}>
-              <View style={{ width: 40, height: 40, borderRadius: 20 }} />
-              <View style={{ width: 40, height: 40, borderRadius: 20 }} />
-              <Image
-                source={ball}
-                resizeMode="contain"
-                style={{ width: 40, height: 40 }}
-              />
-            </View>
-            <View style={{}}>
-              <View style={{ width: 40, height: 40, borderRadius: 20 }} />
-              <View style={{ width: 40, height: 40, borderRadius: 20 }} />
-              <View style={{ width: 40, height: 40, borderRadius: 20 }} />
-            </View>
-            <View style={{}}>
-              <Image
-                source={ball}
-                resizeMode="contain"
-                style={{ width: 40, height: 40 }}
-              />
-              <View style={{ width: 40, height: 40, borderRadius: 20 }} />
-              <View style={{ width: 40, height: 40, borderRadius: 20 }} />
-            </View>
-          </View>
-        );
-        break;
-      case 3:
-        return (
-          <View
-            style={{
-              justifyContent: "center",
-              alignItems: "center",
-              flexDirection: "row",
-            }}
-          >
-            <View style={{}}>
-              <View style={{ width: 40, height: 40, borderRadius: 20 }} />
-              <View style={{ width: 40, height: 40, borderRadius: 20 }} />
-              <Image
-                source={ball}
-                resizeMode="contain"
-                style={{ width: 40, height: 40 }}
-              />
-            </View>
-            <View style={{}}>
-              <View style={{ width: 40, height: 40, borderRadius: 20 }} />
-              <Image
-                source={ball}
-                resizeMode="contain"
-                style={{ width: 40, height: 40 }}
-              />
-              <View style={{ width: 40, height: 40, borderRadius: 20 }} />
-            </View>
-            <View style={{}}>
-              <Image
-                source={ball}
-                resizeMode="contain"
-                style={{ width: 40, height: 40 }}
-              />
-              <View style={{ width: 40, height: 40, borderRadius: 20 }} />
-              <View style={{ width: 40, height: 40, borderRadius: 20 }} />
-            </View>
-          </View>
-        );
-        break;
-      case 4:
-        return (
-          <View
-            style={{
-              justifyContent: "center",
-              alignItems: "center",
-              flexDirection: "row",
-            }}
-          >
-            <View style={{}}>
-              <Image
-                source={ball}
-                resizeMode="contain"
-                style={{ width: 40, height: 40 }}
-              />
-              <View style={{ width: 40, height: 40, borderRadius: 20 }} />
-              <Image
-                source={ball}
-                resizeMode="contain"
-                style={{ width: 40, height: 40 }}
-              />
-            </View>
-            <View style={{}}>
-              <View style={{ width: 40, height: 40, borderRadius: 20 }} />
-              <View style={{ width: 40, height: 40, borderRadius: 20 }} />
-              <View style={{ width: 40, height: 40, borderRadius: 20 }} />
-            </View>
-            <View style={{}}>
-              <Image
-                source={ball}
-                resizeMode="contain"
-                style={{ width: 40, height: 40 }}
-              />
-              <View style={{ width: 40, height: 40, borderRadius: 20 }} />
-              <Image
-                source={ball}
-                resizeMode="contain"
-                style={{ width: 40, height: 40 }}
-              />
-            </View>
-          </View>
-        );
-        break;
-      case 5:
-        return (
-          <View
-            style={{
-              justifyContent: "center",
-              alignItems: "center",
-              flexDirection: "row",
-            }}
-          >
-            <View style={{}}>
-              <Image
-                source={ball}
-                resizeMode="contain"
-                style={{ width: 40, height: 40 }}
-              />
-              <View style={{ width: 40, height: 40, borderRadius: 20 }} />
-              <Image
-                source={ball}
-                resizeMode="contain"
-                style={{ width: 40, height: 40 }}
-              />
-            </View>
-            <View style={{}}>
-              <View style={{ width: 40, height: 40, borderRadius: 20 }} />
-              <Image
-                source={ball}
-                resizeMode="contain"
-                style={{ width: 40, height: 40 }}
-              />
-              <View style={{ width: 40, height: 40, borderRadius: 20 }} />
-            </View>
-            <View style={{}}>
-              <Image
-                source={ball}
-                resizeMode="contain"
-                style={{ width: 40, height: 40 }}
-              />
-              <View style={{ width: 40, height: 40, borderRadius: 20 }} />
-              <Image
-                source={ball}
-                resizeMode="contain"
-                style={{ width: 40, height: 40 }}
-              />
-            </View>
-          </View>
-        );
-        break;
-      case 6:
-        return (
-          <View
-            style={{
-              justifyContent: "center",
-              alignItems: "center",
-              flexDirection: "row",
-            }}
-          >
-            <View style={{}}>
-              <Image
-                source={ball}
-                resizeMode="contain"
-                style={{ width: 40, height: 40 }}
-              />
-              <Image
-                source={ball}
-                resizeMode="contain"
-                style={{ width: 40, height: 40 }}
-              />
-              <Image
-                source={ball}
-                resizeMode="contain"
-                style={{ width: 40, height: 40 }}
-              />
-            </View>
-            <View style={{}}>
-              <View style={{ width: 10, height: 40, borderRadius: 20 }} />
-              <View style={{ width: 10, height: 40, borderRadius: 20 }} />
-              <View style={{ width: 10, height: 40, borderRadius: 20 }} />
-            </View>
-            <View style={{}}>
-              <Image
-                source={ball}
-                resizeMode="contain"
-                style={{ width: 40, height: 40 }}
-              />
-              <Image
-                source={ball}
-                resizeMode="contain"
-                style={{ width: 40, height: 40 }}
-              />
-              <Image
-                source={ball}
-                resizeMode="contain"
-                style={{ width: 40, height: 40 }}
-              />
-            </View>
-          </View>
-        );
-        break;
-    }
-  }
+  
 
   render() {
+     // return(<PresentingIncome />)
     if (this.state.authenticated) {
       return (
         <View style={styles.container}>
           <ScrollView style={{}}>
-            {/* <TouchableOpacity
-              onPress={() => this._rollDice()}
-              style={{
-                height: 300,
-                justifyContent: "center",
-                alignItems: "center",
-                width: "100%",
-              }}
-            >
-              {this.dice()}
-            </TouchableOpacity> */}
+          {/*   <TouchableOpacity */}
+          {/*     onPress={() => this._rollDice()} */}
+          {/*     style={{ */}
+          {/*       height: 300, */}
+          {/*       justifyContent: "center", */}
+          {/*       alignItems: "center", */}
+          {/*       width: "100%", */}
+          {/*     }} */}
+          {/*   > */}
+          {/*     { */}
+          {/*     //this.dice() */}
+          {/* } */}
+          {/*   </TouchableOpacity> */}
             <View
               style={{
                 marginTop: 20,
@@ -806,7 +763,7 @@ export default class Outbound extends Component {
             </KeyboardAvoidingView>
             <View style={{ flex: 1 }}>
               <FlatList
-                data={this.state.items.slice().reverse()}
+                data={this.state.itemsController.slice()}
                 numColumns={3}
                 renderItem={({ item }) => this._debitCard(item)}
               />
@@ -884,6 +841,56 @@ export default class Outbound extends Component {
               <Text style={{ color: "#fff", fontSize: 9 }}>{date}</Text>
             </View>
           </TouchableOpacity>
+          <View style={{flex:1, backgroundColor:"#333"}}></View>
+          <Animated.View style={{backgroundColor:'rgba(0,0,0,0)', position:'absolute', right:-120, bottom:295, transform: [{
+            translateX: this.state.iRailController.interpolate({
+          
+              inputRange:[0,1],
+              outputRange:[0, -130]
+            })
+          }]}}>
+          <TouchableOpacity onPress={() =>    Animated.timing(this.state.arcSpinner).stop()} style={{width:endorphins, height:endorphins, borderRadius:endorphins/2, backgroundColor: veryBerry.RadicalRed, borderWidth:1, justifyContent:'center', alignItems:'center' }} >
+<Ionicons name="md-battery-charging-outline" size={32} color="white" />
+          </TouchableOpacity>
+          </Animated.View>
+          <Animated.View style={{backgroundColor:'rgba(0,0,0,0)', position:'absolute', right:-120, bottom:170, transform: [{
+            translateX: this.state.iRailController2.interpolate({
+          
+              inputRange:[0,1],
+              outputRange:[0, -130]
+            })
+          }]}}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate("Sublime")} style={{width:endorphins, height:endorphins, borderRadius:endorphins/2, backgroundColor: veryBerry.DukeBlue, borderWidth:1, justifyContent:'center', alignItems:'center' }} >
+           <Ionicons name="md-bug-outline" size={32} color="white" />
+           
+          </TouchableOpacity>
+          </Animated.View>
+          <Animated.View style={{backgroundColor:'rgba(0,0,0,0)', position:'absolute', right:-120, bottom:70, transform: [{
+            translateX: this.state.iRailController3.interpolate({     
+              inputRange:[0,1],
+              outputRange:[0, -160]
+            })
+          }]}}>
+          <TouchableOpacity onPress={() => this.resetiRailsController()} style={{width:endorphins, height:endorphins, borderRadius:endorphins/2, justifyContent:'center', alignItems:'center', backgroundColor: veryBerry.JazzberryJam, borderWidth:1 }} >
+<Animated.Image
+          numberOfLines = {1}
+            style={{
+              height: 20,
+              width: 40,
+              marginTop: 0,
+              transform: [
+              { 
+                rotate: this.state.arcSpinner.interpolate({       
+        inputRange:[0,1],
+        outputRange:["180deg", "0deg"]
+      })
+    }],
+            }}
+source = {batman}
+resizeMode ="contain"
+          />
+          </TouchableOpacity>
+          </Animated.View>
         </View>
       );
     } else {

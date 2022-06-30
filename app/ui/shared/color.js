@@ -1,48 +1,8 @@
-export var color = [
-  {
-    name: "Amethyst",
-    hex: "#9b5de5",
-    rgb: [155, 93, 229],
-    cmyk: [32, 59, 0, 10],
-    hsb: [267, 59, 90],
-    hsl: [267, 72, 63],
-    lab: [52, 52, -60],
-  },
-  {
-    name: "Magenta Crayola",
-    hex: "#f15bb5",
-    rgb: [241, 91, 181],
-    cmyk: [0, 62, 25, 5],
-    hsb: [324, 62, 95],
-    hsl: [324, 84, 65],
-    lab: [61, 66, -18],
-  },
-  {
-    name: "Minion Yellow",
-    hex: "#fee440",
-    rgb: [254, 228, 64],
-    cmyk: [0, 10, 75, 0],
-    hsb: [52, 75, 100],
-    hsl: [52, 99, 62],
-    lab: [90, -8, 78],
-  },
-  {
-    name: "Capri",
-    hex: "#00bbf9",
-    rgb: [0, 187, 249],
-    cmyk: [100, 25, 0, 2],
-    hsb: [195, 100, 98],
-    hsl: [195, 100, 49],
-    lab: [71, -18, -42],
-  },
-  {
-    name: "Sea Green Crayola",
-    hex: "#00f5d4",
-    rgb: [0, 245, 212],
-    cmyk: [100, 0, 13, 4],
-    hsb: [172, 100, 96],
-    hsl: [172, 100, 48],
-    lab: [87, -56, 2],
-  },
-];
-
+/* Object */
+export const veryBerry = {
+  "DukeBlue":"#390099",
+  "JazzberryJam":"#9e0059",
+  "RadicalRed":"#ff0054",
+  "OrangePantone":"#ff5400",
+  "Amber":"#ffbd00"
+}

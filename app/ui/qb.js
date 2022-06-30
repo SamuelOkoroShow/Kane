@@ -25,7 +25,6 @@ const QbBall33 = styled.View`
     margin-top:110px;
     border-radius:2px;
     transform: rotate(-32deg);
-    backgroundColor:${color[0].hex};
 `;
 const QbBall40 = styled.View`
     width:30px;
@@ -34,7 +33,6 @@ const QbBall40 = styled.View`
     margin-top:105px;
     border-radius:2px;
     transform: rotate(-90deg);
-    backgroundColor:${color[0].hex};
 `;
 
 // Missing angle
@@ -46,7 +44,7 @@ const QbBall90 = styled.View`
     transform: rotate(180deg);
     border-radius:2px;
 
-    backgroundColor:${color[0].hex};
+ 
 `;
 
 const QbAndroid = styled.View`
