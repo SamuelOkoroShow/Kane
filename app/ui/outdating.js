@@ -21,6 +21,9 @@ import banana from "../image/banana.png";
 import star from "../image/star.png";
 import RotatingModal from './widgets/rotatingModal'
 import PresentingIncome from './widgets/presentingIncome'
+import batman from "../image/batman.png";
+import glenRoss from "../image/glenfiddich.png";
+
 import * as SecureStore from 'expo-secure-store';
 //import sportArr from "./sportList";
 import sportArr from './sportList.json';
@@ -39,6 +42,8 @@ let cape_suicide;
 var elevate;
 var excite;
 var ux;
+var duke;
+var essentials;
 var element;
 var electric;
 var eq;
@@ -100,12 +105,14 @@ export default class Outbound extends Component {
       triangle4: 0,
       triangle5: 0,
       // useEffectSwitch: false,
-      items: [],
+      itemsController: [],
       triangles: [],
       authenticated: true,
       dollarCountDown: 60
     };
   }
+
+
 
   iEEspeed = () => {
 
@@ -139,6 +146,16 @@ export default class Outbound extends Component {
     }).start(), enlight)
   };
 
+    resetiRailsController() {
+    this.setState({
+      iRailController: new Animated.Value(0),
+      iRailController2: new Animated.Value(0),
+      iRailController3: new Animated.Value(0),
+      iRailController4: new Animated.Value(0),
+    })
+    this.iRailSpring()
+  }
+
   iConserverController = () => {
     const y = empower;
     enlight = empower;
@@ -167,7 +184,7 @@ export default class Outbound extends Component {
     this.getValueFor("Florida")
     //this.getValueFor("Febreeze")
     //console.log(sportArr)
-    this.jsonToArray(sportArr)
+    this.cToArray(sportArr)
     this.getListfor("Febreeze")
     this.rotateSCAR()
     var R = 10
@@ -235,7 +252,7 @@ export default class Outbound extends Component {
     let result = await SecureStore.getItemAsync(key)
     if(result){
       this.setState({
-        items: result
+        itemsController: result
       })
     }
   }
@@ -254,7 +271,7 @@ export default class Outbound extends Component {
       // console.log(fruits)
       if(result){
         this.setState({
-          items: fruits
+          itemsController: fruits
         })
        //alert("result")
      }
@@ -351,10 +368,10 @@ export default class Outbound extends Component {
   }
 
   logWires() {
-    //console.log(this.state.items)
+    //console.log(this.state.itemsController)
     var total = 0;
-    for (var i = 0; i < this.state.items.length; i++) {
-      total = parseInt(this.state.items[i].amount) + total;
+    for (var i = 0; i < this.state.itemsController.length; i++) {
+      total = parseInt(this.state.itemsController[i].amount) + total;
     }
   }
 
@@ -388,11 +405,11 @@ export default class Outbound extends Component {
     const dollarConversion = this.state.amount / 18.3
     this.setState({
       dollarCountDown: Math.floor(this.state.dollarCountDown - dollarConversion),
-      items: [...this.state.items, {ref: this.state.val, amount: this.state.amount, date: LOOKERS_JAGUAR.toString(), day: date, currency: "Mexican Pesos"}]
+      itemsController: [...this.state.itemsController, {ref: this.state.val, amount: this.state.amount, date: LOOKERS_JAGUAR.toString(), day: date, currency: "Mexican Pesos"}]
     })
 
     this.save("Florida", Math.floor(this.state.dollarCountDown - dollarConversion).toString())
-    this.save("Febreeze", JSON.stringify(this.state.items))
+    this.save("Febreeze", JSON.stringify(this.state.itemsController))
 
     
 
@@ -423,12 +440,12 @@ export default class Outbound extends Component {
     //   })
   }
 
-  jsonToArray(j) {
+  cToArray(j) {
     
 
    // console.log(Object.keys(j).map(function(_) { return j[_]; }))
     this.setState({
-      items: Object.keys(j).map(function(_) { return j[_]; })
+      itemsController: Object.keys(j).map(function(_) { return j[_]; })
     })
 
   }
@@ -451,7 +468,7 @@ export default class Outbound extends Component {
       });
       //console.log(items)
       this.setState({
-        items: items,
+        itemsController: items,
       });
       this.logWires();
     });
@@ -600,9 +617,9 @@ export default class Outbound extends Component {
           <Animated.Image
           numberOfLines = {1}
             style={{
-              height: 20,
-              width: 40,
-              marginTop: 30,
+              height: 40,
+              width: 50,
+              marginTop: 10,
               transform: [
               { 
                 rotate: this.state.arcSpinner.interpolate({       
@@ -611,7 +628,7 @@ export default class Outbound extends Component {
       })
     }],
             }}
-source = {star}
+source = {glenRoss}
 resizeMode ="contain"
           />
           <View
@@ -641,7 +658,7 @@ resizeMode ="contain"
     );
 
     this.setState({
-      items: this.state.items,
+      itemsController: this.state.itemsController,
     });
   }
 
@@ -746,7 +763,7 @@ resizeMode ="contain"
             </KeyboardAvoidingView>
             <View style={{ flex: 1 }}>
               <FlatList
-                data={this.state.items.slice().reverse()}
+                data={this.state.itemsController.slice()}
                 numColumns={3}
                 renderItem={({ item }) => this._debitCard(item)}
               />
@@ -826,52 +843,52 @@ resizeMode ="contain"
           </TouchableOpacity>
           <View style={{flex:1, backgroundColor:"#333"}}></View>
           <Animated.View style={{backgroundColor:'rgba(0,0,0,0)', position:'absolute', right:-120, bottom:295, transform: [{
-            rotate: this.state.arcSpinner.interpolate({       
-        inputRange:[0,1],
-        outputRange:["360deg", "0deg"]
-      })
-          },{
             translateX: this.state.iRailController.interpolate({
           
               inputRange:[0,1],
               outputRange:[0, -130]
             })
           }]}}>
-          <TouchableOpacity style={{width:endorphins, height:endorphins, borderRadius:endorphins/2, backgroundColor: veryBerry.RadicalRed, borderWidth:1, justifyContent:'center', alignItems:'center' }} >
+          <TouchableOpacity onPress={() =>    Animated.timing(this.state.arcSpinner).stop()} style={{width:endorphins, height:endorphins, borderRadius:endorphins/2, backgroundColor: veryBerry.RadicalRed, borderWidth:1, justifyContent:'center', alignItems:'center' }} >
 <Ionicons name="md-battery-charging-outline" size={32} color="white" />
           </TouchableOpacity>
           </Animated.View>
           <Animated.View style={{backgroundColor:'rgba(0,0,0,0)', position:'absolute', right:-120, bottom:170, transform: [{
-            rotate: this.state.arcSpinner.interpolate({       
-        inputRange:[0,1],
-        outputRange:["720deg", "0deg"]
-      })
-          },{
             translateX: this.state.iRailController2.interpolate({
           
               inputRange:[0,1],
               outputRange:[0, -130]
             })
           }]}}>
-          <TouchableOpacity style={{width:endorphins, height:endorphins, borderRadius:endorphins/2, backgroundColor: veryBerry.DukeBlue, borderWidth:1, justifyContent:'center', alignItems:'center' }} >
+          <TouchableOpacity onPress={() => this.props.navigation.navigate("Sublime")} style={{width:endorphins, height:endorphins, borderRadius:endorphins/2, backgroundColor: veryBerry.DukeBlue, borderWidth:1, justifyContent:'center', alignItems:'center' }} >
            <Ionicons name="md-bug-outline" size={32} color="white" />
            
           </TouchableOpacity>
           </Animated.View>
           <Animated.View style={{backgroundColor:'rgba(0,0,0,0)', position:'absolute', right:-120, bottom:70, transform: [{
-            rotate: this.state.arcSpinner.interpolate({       
-        inputRange:[0,1],
-        outputRange:["360deg", "0deg"]
-      })
-          },{
             translateX: this.state.iRailController3.interpolate({     
               inputRange:[0,1],
               outputRange:[0, -160]
             })
           }]}}>
-          <TouchableOpacity style={{width:endorphins, height:endorphins, borderRadius:endorphins/2, justifyContent:'center', alignItems:'center', backgroundColor: veryBerry.JazzberryJam, borderWidth:1 }} >
- <Ionicons name="md-baseball-outline" size={32} color="white" />
-
+          <TouchableOpacity onPress={() => this.resetiRailsController()} style={{width:endorphins, height:endorphins, borderRadius:endorphins/2, justifyContent:'center', alignItems:'center', backgroundColor: veryBerry.JazzberryJam, borderWidth:1 }} >
+<Animated.Image
+          numberOfLines = {1}
+            style={{
+              height: 20,
+              width: 40,
+              marginTop: 0,
+              transform: [
+              { 
+                rotate: this.state.arcSpinner.interpolate({       
+        inputRange:[0,1],
+        outputRange:["180deg", "0deg"]
+      })
+    }],
+            }}
+source = {batman}
+resizeMode ="contain"
+          />
           </TouchableOpacity>
           </Animated.View>
         </View>

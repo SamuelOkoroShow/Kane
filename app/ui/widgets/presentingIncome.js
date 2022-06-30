@@ -87,7 +87,7 @@ const income = [
     ]}
 ]
 
-export default function rotatingModal() {
+export default function presentingIncome() {
   
   const [rexAnimated, setRexAnimated] = useState(new Animated.Value(0))
     rotateAR = () => {

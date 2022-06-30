@@ -6,6 +6,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import Oshee33 from './app/ui/healhomes'
 //import Router from './app/ui/router'
 import GithubCigar from './app/ui/outdating'
+import Sublime from './app/ui/sublime'
 import QB from './app/ui/qb'
 //import { AnimatedCircles } from './app/AnimatedCircles/AnimateGeo.component';
 import * as Notifications from 'expo-notifications';
@@ -39,7 +40,8 @@ const App = () => {
             headerShown: false,
           }}
         >
-          <Stack.Screen name="Calendar" component={GithubCigar} />
+          <Stack.Screen name="Home" component={GithubCigar} />
+          <Stack.Screen name="Sublime" component={Sublime} />
         </Stack.Navigator>
       </NavigationContainer>
 
